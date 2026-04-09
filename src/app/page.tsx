@@ -18,7 +18,7 @@ export default function Home() {
       <header className="sticky top-0 z-40 bg-[var(--bg-dark)]/80 backdrop-blur-sm border-b border-[var(--primary)]/20 relative">
         <div className="w-full px-6 py-4">
           <LeonLinkLogo />
-          <div className="absolute top-4 right-6">
+          <div className="flex justify-center">
             <ThemeSwitcher />
           </div>
         </div>
