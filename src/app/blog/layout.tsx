@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Blog | Leon-Link The Arena',
+  title: 'Blog | The Coliseum',
   description: 'Articles on psychology, relationships, technology, and philosophy.',
 };
 

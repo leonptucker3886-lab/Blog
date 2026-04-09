@@ -23,7 +23,7 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "Leon-Link",
+  title: "The Coliseum",
   description: "The Arena - Personal Gaming Style Blog",
 };
 

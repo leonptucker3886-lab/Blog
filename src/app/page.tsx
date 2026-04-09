@@ -18,7 +18,7 @@ export default function Home() {
             className="text-xl font-bold gradient-text"
             style={{ fontFamily: 'var(--font-cinzel)' }}
           >
-            LEON-LINK
+            THE COLISEUM
           </Link>
         </div>
       </nav>
