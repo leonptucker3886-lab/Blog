@@ -4,6 +4,13 @@ import { eq } from 'drizzle-orm';
 import bcrypt from 'bcrypt';
 
 async function seed() {
+  const dbUrl = process.env.DB_URL;
+  const dbToken = process.env.DB_TOKEN;
+
+  if (!dbUrl || !dbToken) {
+    console.log('Database environment variables not set, skipping seeding');
+    return;
+  }
   // Create admin user if not exists
   const existingAdmin = await db.select().from(users).where(eq(users.email, 'admin@leonlink.com')).limit(1);
   if (existingAdmin.length === 0) {
