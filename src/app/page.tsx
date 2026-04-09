@@ -47,7 +47,7 @@ export default function Home() {
               THE ARENA
             </h2>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-              Personal thoughts, code projects, and life stories
+              Discussions on Mental health, crypto, the origins of life, religion, sex, politics, nothing is out of text reach.
             </p>
           </div>
         </div>

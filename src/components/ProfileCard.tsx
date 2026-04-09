@@ -12,10 +12,11 @@ export default function ProfileCard() {
         {/* Profile Photo */}
         <div className="w-28 h-28 rounded-full border-4 border-[var(--accent)] overflow-hidden 
                         bg-[var(--bg-dark)] flex items-center justify-center profile-glow">
-          <svg width="80" height="80" viewBox="0 0 80 80">
-            <circle cx="40" cy="32" r="18" fill="var(--primary)" />
-            <path d="M10 75 Q40 45 70 75" fill="var(--primary)" />
-          </svg>
+          <img 
+            src="https://images.unsplash.com/photo-1534308143481-c55f00be8bd7?q=80&w=300&h=300&fit=crop&crop=face"
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
         </div>
         
         <div className="text-center">
