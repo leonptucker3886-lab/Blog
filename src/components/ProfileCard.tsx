@@ -15,8 +15,8 @@ export default function ProfileCard() {
         <div className="w-28 h-28 rounded-full border-4 border-[var(--accent)] overflow-hidden
                         bg-[var(--bg-dark)] flex items-center justify-center profile-glow">
           <Image
-            src="https://media.licdn.com/dms/image/v2/C4E0BAQGMjVo5YMq5hg/company-logo_200_200/company-logo_200_200/0/1643144013624?e=2147483647&v=beta&t=_Mf0Dm7eaKo3pS-Dk69TCK0sO6AhRKhCobCOnH9mdZg"
-            alt="Company Logo"
+            src="https://assets.kiloapps.io/user_510ee690-064d-4396-9031-fb485773f7b7/fed90a3f-c9cf-427e-abc6-9ab347c8346d/5bc147f6-e45e-4cbe-b054-630afce1328f.jpg"
+            alt="Profile Picture"
             className="w-full h-full object-cover"
             width={112}
             height={112}
