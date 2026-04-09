@@ -50,7 +50,7 @@ export default function Home() {
       <footer className="border-t border-[var(--primary)]/20 py-8 px-6 z-10 relative">
         <div className="max-w-4xl mx-auto text-center">
           <p style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-orbitron)' }}>
-            © 2026 LEON-LINK • ALL RIGHTS RESERVED
+            © 2026             THE-COLISEUM • ALL RIGHTS RESERVED
           </p>
         </div>
       </footer>
