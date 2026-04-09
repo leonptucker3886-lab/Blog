@@ -15,8 +15,8 @@ export default function ProfileCard() {
         <div className="w-28 h-28 rounded-full border-4 border-[var(--accent)] overflow-hidden
                         bg-[var(--bg-dark)] flex items-center justify-center profile-glow">
           <Image
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/US_Navy_Master_Chief_Petty_Officer_insignia.svg/200px-US_Navy_Master_Chief_Petty_Officer_insignia.svg.png"
-            alt="Master Chief Rank"
+            src="https://media.licdn.com/dms/image/v2/C4E0BAQGMjVo5YMq5hg/company-logo_200_200/company-logo_200_200/0/1643144013624?e=2147483647&v=beta&t=_Mf0Dm7eaKo3pS-Dk69TCK0sO6AhRKhCobCOnH9mdZg"
+            alt="Company Logo"
             className="w-full h-full object-cover"
             width={112}
             height={112}
