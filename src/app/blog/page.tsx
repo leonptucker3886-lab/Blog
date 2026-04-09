@@ -4,6 +4,8 @@ import { db } from '@/db';
 import { posts } from '@/db/schema';
 import { desc } from 'drizzle-orm';
 
+export const dynamic = 'force-dynamic';
+
 interface BlogPost {
   id: number;
   slug: string;
