@@ -1,37 +1,43 @@
 "use client";
 
 import Link from 'next/link';
-import LeonLinkLogo from '@/components/LeonLinkLogo';
-import ThemeSwitcher from '@/components/ThemeSwitcher';
 import { MilestoneBadges } from '@/components/MilestoneBadges';
+import { useState } from 'react';
+
+interface BlogPost {
+  slug: string;
+  title: string;
+  subtitle: string;
+  date: string;
+  readTime: string;
+  description: string;
+  tags: string[];
+}
 
 export default function BlogIndex() {
-  const blogPosts = [
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const blogPosts: BlogPost[] = [
     {
       slug: 'darvo',
       title: 'Understanding DARVO',
       subtitle: 'Narcissism, Manipulation Tactics, and How to Protect Yourself',
       date: 'April 9, 2026',
       readTime: '15 min read',
-      description: 'An educational guide to recognizing DARVO abusive patterns in relationships - Deny, Attack, Reverse Victim and Offender.'
+      description: 'An educational guide to recognizing DARVO abusive patterns in relationships - Deny, Attack, Reverse Victim and Offender.',
+      tags: ['narcissism', 'DARVO', 'abuse', 'manipulation', 'mental health']
     }
   ];
+
+  const filteredPosts = blogPosts.filter(post =>
+    post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    post.subtitle.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
 
   return (
     <main className="min-h-screen relative overflow-x-hidden">
       <MilestoneBadges />
-      
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-[var(--bg-dark)]/80 backdrop-blur-sm border-b border-[var(--primary)]/20 relative">
-        <div className="w-full px-6 py-4">
-          <Link href="/">
-            <LeonLinkLogo />
-          </Link>
-          <div className="flex justify-center mt-2">
-            <ThemeSwitcher />
-          </div>
-        </div>
-      </header>
 
       {/* Blog Index */}
       <section className="py-16 px-6 relative z-10">
@@ -42,20 +48,32 @@ export default function BlogIndex() {
           >
             THE ARENA BLOG
           </h1>
-          <p className="text-lg text-center mb-12 max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
+          <p className="text-lg text-center mb-8 max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
             Discussions on mental health, psychology, technology, philosophy, and everything in between.
           </p>
 
+          {/* Search Bar */}
+          <div className="mb-8">
+            <input
+              type="text"
+              placeholder="Search posts, titles, or tags..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full px-4 py-3 rounded-lg border border-[var(--primary)]/50 bg-[var(--bg-lighter)]/30 focus:border-[var(--accent)] focus:outline-none transition-colors"
+              style={{ fontFamily: 'var(--font-orbitron)' }}
+            />
+          </div>
+
           <div className="space-y-6">
-            {blogPosts.map((post) => (
-              <Link 
+            {filteredPosts.map((post) => (
+              <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
                 className="block group p-6 rounded-lg border border-[var(--primary)]/30 bg-[var(--bg-lighter)]/30 hover:bg-[var(--bg-lighter)]/60 hover:border-[var(--accent)]/50 transition-all duration-300"
               >
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                   <div className="flex-1">
-                    <h2 
+                    <h2
                       className="text-xl md:text-2xl font-bold mb-2 group-hover:text-[var(--accent)] transition-colors"
                       style={{ fontFamily: 'var(--font-cinzel)', color: 'var(--primary)' }}
                     >
@@ -67,6 +85,14 @@ export default function BlogIndex() {
                     <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
                       {post.description}
                     </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {post.tags.map((tag) => (
+                        <span key={tag} className="px-3 py-1 text-sm rounded-full border border-[var(--accent)]/50 bg-[var(--accent)]/10"
+                              style={{ color: 'var(--accent)', fontFamily: 'var(--font-orbitron)' }}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                     <div className="flex items-center gap-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
                       <span>{post.date}</span>
                       <span>•</span>
@@ -82,6 +108,12 @@ export default function BlogIndex() {
               </Link>
             ))}
           </div>
+
+          {filteredPosts.length === 0 && (
+            <p className="text-center mt-8" style={{ color: 'var(--text-secondary)' }}>
+              No posts found matching your search.
+            </p>
+          )}
 
           <div className="mt-12 text-center">
             <Link 

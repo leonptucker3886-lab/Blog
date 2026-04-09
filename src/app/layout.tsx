@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel_Decorative, Rajdhani, Orbitron } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../context/ThemeContext";
+import Header from "../components/Header";
 
 const cinzel = Cinzel_Decorative({
   variable: "--font-cinzel",
@@ -38,6 +39,7 @@ export default function RootLayout({
         style={{ fontFamily: 'var(--font-rajdhani), sans-serif' }}
       >
         <ThemeProvider>
+          <Header />
           {children}
         </ThemeProvider>
       </body>

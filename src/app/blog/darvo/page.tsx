@@ -37,7 +37,7 @@ export default function DARVOBlogPost() {
 
           <div className="prose max-w-none" style={{ fontFamily: 'var(--font-rajdhani)', color: 'var(--text-primary)' }}>
             <p className="text-lg mb-8">
-              Narcissism isn't just about self-absorption or vanity—when it crosses into narcissistic personality traits or narcissistic abuse, it often involves sophisticated psychological tactics designed to control, confuse, and evade accountability. One of the most effective and insidious strategies is <strong>DARVO</strong>, a pattern that leaves victims questioning their own reality.
+              Narcissism isn&apos;t just about self-absorption or vanity—when it crosses into narcissistic personality traits or narcissistic abuse, it often involves sophisticated psychological tactics designed to control, confuse, and evade accountability. One of the most effective and insidious strategies is <strong>DARVO</strong>, a pattern that leaves victims questioning their own reality.
             </p>
 
             <div className="my-8 p-6 rounded-lg border border-[var(--primary)]/30 bg-[var(--bg-lighter)]/50">
@@ -56,7 +56,7 @@ export default function DARVOBlogPost() {
             </div>
 
             <p className="mb-6">
-              This blog post breaks down DARVO clearly, explores related narcissistic tactics, and offers practical steps for recognition and recovery. Whether you're navigating a difficult relationship, recovering from emotional abuse, or simply educating yourself, understanding these dynamics is empowering.
+              This blog post breaks down DARVO clearly, explores related narcissistic tactics, and offers practical steps for recognition and recovery. Whether you&apos;re navigating a difficult relationship, recovering from emotional abuse, or simply educating yourself, understanding these dynamics is empowering.
             </p>
 
             <h2 
@@ -79,19 +79,19 @@ export default function DARVOBlogPost() {
                 <h3 className="font-bold text-xl mb-2" style={{ color: 'var(--accent)' }}>1. Deny</h3>
                 <p className="mb-3">The individual flatly rejects the accusation or minimizes it.</p>
                 <ul className="list-disc pl-6 space-y-1" style={{ color: 'var(--text-secondary)' }}>
-                  <li>"That never happened."</li>
-                  <li>"You're exaggerating/misremembering/making this up."</li>
-                  <li>"I would never do something like that."</li>
+                  <li>&quot;That never happened.&quot;</li>
+                  <li>&quot;You&apos;re exaggerating/misremembering/making this up.&quot;</li>
+                  <li>&quot;I would never do something like that.&quot;</li>
                 </ul>
               </div>
 
               <div className="p-4 rounded-lg border border-[var(--primary)]/20 bg-[var(--bg-lighter)]/30">
                 <h3 className="font-bold text-xl mb-2" style={{ color: 'var(--accent)' }}>2. Attack</h3>
-                <p className="mb-3">Once denial is on the table, the person shifts to aggressive counter-attacks against the accuser's character, memory, or motives. This often feels like gaslighting.</p>
+                <p className="mb-3">Once denial is on the table, the person shifts to aggressive counter-attacks against the accuser&apos;s character, memory, or motives. This often feels like gaslighting.</p>
                 <ul className="list-disc pl-6 space-y-1" style={{ color: 'var(--text-secondary)' }}>
-                  <li>"You're crazy/too sensitive/paranoid."</li>
-                  <li>"You're always causing drama."</li>
-                  <li>"This is why no one can stand being around you."</li>
+                  <li>&quot;You&apos;re crazy/too sensitive/paranoid.&quot;</li>
+                  <li>&quot;You&apos;re always causing drama.&quot;</li>
+                  <li>&quot;This is why no one can stand being around you.&quot;</li>
                 </ul>
               </div>
 
@@ -99,15 +99,15 @@ export default function DARVOBlogPost() {
                 <h3 className="font-bold text-xl mb-2" style={{ color: 'var(--accent)' }}>3. Reverse Victim and Offender</h3>
                 <p className="mb-3">The final twist: the abuser claims <em>they</em> are the real victim while painting the original victim as the perpetrator.</p>
                 <ul className="list-disc pl-6 space-y-1" style={{ color: 'var(--text-secondary)' }}>
-                  <li>"You're the one abusing <em>me</em> by bringing this up."</li>
-                  <li>"Look at how you're hurting my reputation/family/mental health."</li>
-                  <li>"I'm the one who should be upset here."</li>
+                  <li>&quot;You&apos;re the one abusing &lt;em&gt;me&lt;/em&gt; by bringing this up.&quot;</li>
+                  <li>&quot;Look at how you&apos;re hurting my reputation/family/mental health.&quot;</li>
+                  <li>&quot;I&apos;m the one who should be upset here.&quot;</li>
                 </ul>
               </div>
             </div>
 
             <p className="mb-6">
-              This sequence is incredibly effective because it flips the power dynamic, induces guilt in the victim, and often recruits bystanders who only hear the "victim" narrative from the narcissist.
+              This sequence is incredibly effective because it flips the power dynamic, induces guilt in the victim, and often recruits bystanders who only hear the &quot;victim&quot; narrative from the narcissist.
             </p>
 
             <p className="mb-6">
@@ -126,10 +126,10 @@ export default function DARVOBlogPost() {
               <h3 className="font-bold mb-4">Real-World Example</h3>
               <p className="mb-2"><em>Partner A confronts Partner B about repeated emotional put-downs.</em></p>
               <p className="italic" style={{ color: 'var(--text-secondary)' }}>
-                Partner B's DARVO response:
+                Partner B&apos;s DARVO response:
               </p>
               <blockquote className="mt-2 pl-4 border-l-4 border-[var(--primary)]">
-                "I never said those things—you're twisting my words because you're insecure and controlling. Now <em>I'm</em> the one feeling attacked and walking on eggshells. You're the toxic one here."
+                &quot;I never said those things—you&apos;re twisting my words because you&apos;re insecure and controlling. Now &lt;em&gt;I&apos;m&lt;/em&gt; the one feeling attacked and walking on eggshells. You&apos;re the toxic one here.&quot;
               </blockquote>
             </div>
 
@@ -145,13 +145,13 @@ export default function DARVOBlogPost() {
             </p>
 
             <ul className="space-y-3 mb-8">
-              <li><strong>Gaslighting</strong> — Systematically making you doubt your perceptions, memories, or sanity ("You're overreacting; that's not what I said").</li>
+                <li><strong>Gaslighting</strong> — Systematically making you doubt your perceptions, memories, or sanity (&quot;You&apos;re overreacting; that&apos;s not what I said&quot;).</li>
               <li><strong>Projection</strong> — Accusing <em>you</em> of the very behaviors they exhibit (e.g., a cheater constantly accusing you of cheating).</li>
               <li><strong>Love Bombing</strong> — Overwhelming affection, gifts, and attention early on to hook you, followed by withdrawal.</li>
               <li><strong>Smear Campaigns</strong> — Spreading rumors or lies to isolate you from friends, family, or colleagues.</li>
               <li><strong>Silent Treatment / Stonewalling</strong> — Punishing you with prolonged silence or emotional shutdown.</li>
               <li><strong>Triangulation</strong> — Bringing a third party (real or invented) into the conflict to create jealousy, competition, or doubt.</li>
-              <li><strong>Playing the Victim / Martyr</strong> — A constant narrative of being wronged by everyone else, which overlaps heavily with the "R" in DARVO.</li>
+                <li><strong>Playing the Victim / Martyr</strong> — A constant narrative of being wronged by everyone else, which overlaps heavily with the &quot;R&quot; in DARVO.</li>
             </ul>
 
             <p className="mb-6">
@@ -182,11 +182,11 @@ export default function DARVOBlogPost() {
               DARVO and related tactics erode self-trust, create anxiety, depression, and even <strong>trauma bonding</strong> (the addictive pull of intermittent kindness mixed with harm). Victims often feel:
             </p>
 
-            <ul className="space-y-2 mb-6">
-              <li>Constantly "crazy" or at fault</li>
-              <li>Isolated from support networks</li>
-              <li>Trapped in a loop of trying to "prove" their experience</li>
-            </ul>
+              <ul className="space-y-2 mb-6">
+                <li>Constantly &quot;crazy&quot; or at fault</li>
+                <li>Isolated from support networks</li>
+                <li>Trapped in a loop of trying to &quot;prove&quot; their experience</li>
+              </ul>
 
             <p className="mb-6">
               Recognizing the pattern is the first step toward breaking free.
@@ -213,18 +213,18 @@ export default function DARVOBlogPost() {
             </h2>
 
             <ul className="space-y-4 mb-8">
-              <li>
-                <strong>Recognize it in real time</strong> — When you hear denial + attack + victim flip, name it internally: "This is DARVO."
-              </li>
-              <li>
-                <strong>Stay factual and brief</strong> — Avoid JADE (Justify, Argue, Defend, Explain). Short responses like "I remember what happened" or gray rocking (neutral, low-emotion replies) can limit engagement.
-              </li>
+                <li>
+                  <strong>Recognize it in real time</strong> — When you hear denial + attack + victim flip, name it internally: &quot;This is DARVO.&quot;
+                </li>
+                <li>
+                  <strong>Stay factual and brief</strong> — Avoid JADE (Justify, Argue, Defend, Explain). Short responses like &quot;I remember what happened&quot; or gray rocking (neutral, low-emotion replies) can limit engagement.
+                </li>
               <li>
                 <strong>Document everything</strong> — Keep records of incidents, messages, and patterns (dates, what was said, how you felt).
               </li>
-              <li>
-                <strong>Set and hold boundaries</strong> — "I won't continue this conversation if it turns into personal attacks."
-              </li>
+                <li>
+                  <strong>Set and hold boundaries</strong> — &quot;I won&apos;t continue this conversation if it turns into personal attacks.&quot;
+                </li>
               <li>
                 <strong>Seek external validation</strong> — Talk to a therapist trained in narcissistic abuse, trauma, or betrayal trauma. Support groups can also help.
               </li>
@@ -234,7 +234,7 @@ export default function DARVOBlogPost() {
             </ul>
 
             <p className="mb-6">
-              Healing takes time. Focus on rebuilding self-trust, not "fixing" the other person.
+              Healing takes time. Focus on rebuilding self-trust, not &quot;fixing&quot; the other person.
             </p>
 
             <h2 
@@ -245,11 +245,11 @@ export default function DARVOBlogPost() {
             </h2>
 
             <p className="mb-4">
-              DARVO and narcissistic tactics thrive in secrecy and self-doubt. Shining light on them through education is one of the most powerful ways to reclaim your reality. You are not "too sensitive," "crazy," or "the problem." Your experiences are valid.
+              DARVO and narcissistic tactics thrive in secrecy and self-doubt. Shining light on them through education is one of the most powerful ways to reclaim your reality. You are not &quot;too sensitive,&quot; &quot;crazy,&quot; or &quot;the problem.&quot; Your experiences are valid.
             </p>
 
             <p className="mb-4">
-              If you're struggling, reach out to a licensed mental health professional or a domestic abuse hotline in your area. Recovery is possible, and you don't have to do it alone.
+              If you&apos;re struggling, reach out to a licensed mental health professional or a domestic abuse hotline in your area. Recovery is possible, and you don&apos;t have to do it alone.
             </p>
 
             <div className="my-8 p-6 rounded-lg border border-[var(--primary)]/30 bg-[var(--bg-lighter)]/50">

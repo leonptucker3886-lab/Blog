@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function ProfileCard() {
   return (
     <div className="bg-[var(--secondary)] border border-[var(--primary)] rounded-2xl p-6 max-w-md mx-auto
@@ -7,15 +9,17 @@ export default function ProfileCard() {
           <circle cx="50" cy="50" r="40" fill="var(--accent)" />
         </svg>
       </div>
-      
+
       <div className="flex flex-col items-center gap-4">
         {/* Profile Photo */}
-        <div className="w-28 h-28 rounded-full border-4 border-[var(--accent)] overflow-hidden 
+        <div className="w-28 h-28 rounded-full border-4 border-[var(--accent)] overflow-hidden
                         bg-[var(--bg-dark)] flex items-center justify-center profile-glow">
-          <img 
+          <Image
             src="https://assets.kiloapps.io/user_510ee690-064d-4396-9031-fb485773f7b7/fed90a3f-c9cf-427e-abc6-9ab347c8346d/e1b16088-b584-42d3-85e9-91b3181a2d67.jpg"
             alt="Profile"
             className="w-full h-full object-cover"
+            width={112}
+            height={112}
           />
         </div>
         
