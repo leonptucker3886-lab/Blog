@@ -16,8 +16,8 @@ export default function ThemeSwitcher() {
       <select
         value={theme}
         onChange={(e) => setTheme(e.target.value)}
-        className="bg-[var(--secondary)] border border-[var(--primary)] px-3 py-1.5 rounded-lg 
-                   text-[var(--text-primary)] font-[var(--font-orbitron)] text-xs
+        className="bg-[var(--secondary)] border border-[var(--primary)] px-4 py-2 rounded-lg
+                   text-[var(--text-primary)] font-[var(--font-orbitron)] text-sm
                    hover:border-[var(--accent)] transition-all cursor-pointer"
       >
         {themes.map((t) => (
