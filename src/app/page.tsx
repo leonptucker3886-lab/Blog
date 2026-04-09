@@ -28,6 +28,15 @@ export default function Home() {
             >
               BLOG
             </Link>
+            <a
+              href="https://hhhhu.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[var(--accent)] transition-colors"
+              style={{ fontFamily: 'var(--font-orbitron)' }}
+            >
+              SUNNFUN SLOTS
+            </a>
           </div>
         </div>
       </nav>
