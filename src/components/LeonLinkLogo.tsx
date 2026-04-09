@@ -37,7 +37,7 @@ export default function LeonLinkLogo() {
       <div className="text-center flex-1">
         <h1 className="text-4xl md:text-5xl font-bold gradient-text glitch"
             style={{ fontFamily: 'var(--font-cinzel)' }}>
-          LEON-LINK
+          THE-COLISEUM
         </h1>
         <p className="text-sm md:text-base tracking-widest uppercase" style={{
           fontFamily: 'var(--font-orbitron)',
