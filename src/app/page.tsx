@@ -15,7 +15,7 @@ const blogPosts = [
   { id: 6, title: "Gaming and Discipline", category: "Gaming", date: "February 2026" },
 ];
 
-const categories = ["All", "General", "Coding", "Life", "Gaming"];
+const categories = ["All", "General", "Origin Story", "Mental Health", "Religion", "History", "Bullshit Push"];
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState("All");
