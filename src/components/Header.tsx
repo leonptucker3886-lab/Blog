@@ -6,9 +6,18 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-[var(--bg-dark)]/80 backdrop-blur-sm border-b border-[var(--primary)]/20 relative">
       <div className="w-full px-6 py-4">
-        <Link href="/">
-          <LeonLinkLogo />
-        </Link>
+        <div className="flex justify-between items-center mb-4">
+          <Link href="/">
+            <LeonLinkLogo />
+          </Link>
+          <a
+            href="/admin/login"
+            className="text-sm hover:text-[var(--accent)] transition-colors"
+            style={{ fontFamily: 'var(--font-orbitron)' }}
+          >
+            Admin Login
+          </a>
+        </div>
         <div className="flex justify-center">
           <ThemeSwitcher />
         </div>
