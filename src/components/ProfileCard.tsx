@@ -13,7 +13,7 @@ export default function ProfileCard() {
         <div className="w-28 h-28 rounded-full border-4 border-[var(--accent)] overflow-hidden 
                         bg-[var(--bg-dark)] flex items-center justify-center profile-glow">
           <img 
-            src="https://images.unsplash.com/photo-1534308143481-c55f00be8bd7?q=80&w=300&h=300&fit=crop&crop=face"
+            src="https://api.dicebear.com/9.x/adventurer/svg?seed=Leon&backgroundColor=1a1a2e&scale=85"
             alt="Profile"
             className="w-full h-full object-cover"
           />
