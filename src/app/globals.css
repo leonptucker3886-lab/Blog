@@ -1,1 +1,105 @@
 @import "tailwindcss";
+
+:root {
+  --primary: #C41E3A;
+  --secondary: #1A1A2E;
+  --accent: #FFD700;
+  --bg-dark: #0F0F1A;
+  --bg-lighter: #1A1A2E;
+  --text-primary: #E5E5E5;
+  --text-secondary: #888888;
+}
+
+[data-theme="spartan"] {
+  --primary: #C41E3A;
+  --secondary: #1A1A2E;
+  --accent: #FFD700;
+}
+
+[data-theme="ocean"] {
+  --primary: #0F4C75;
+  --secondary: #1B262C;
+  --accent: #00B4D8;
+}
+
+[data-theme="forest"] {
+  --primary: #2D6A4F;
+  --secondary: #1B4332;
+  --accent: #95D5B2;
+}
+
+[data-theme="void"] {
+  --primary: #240046;
+  --secondary: #10002B;
+  --accent: #9D4EDD;
+}
+
+[data-theme="solar"] {
+  --primary: #FF6B35;
+  --secondary: #004E89;
+  --accent: #F7C59F;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glow-accent {
+    box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent), 0 0 30px var(--accent);
+  }
+  .glow-primary {
+    box-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  transition: all 0.5s ease;
+}
+
+.badge-float {
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(3deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px var(--accent); }
+  50% { box-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent); }
+}
+
+.profile-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.glitch {
+  animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+  0%, 90%, 100% { transform: translate(0); }
+  92% { transform: translate(-2px, 2px); }
+  94% { transform: translate(2px, -2px); }
+  96% { transform: translate(-2px, -2px); }
+  98% { transform: translate(2px, 2px); }
+}
+
+.spartan-shield {
+  transition: all 0.3s ease;
+}
+.spartan-shield:hover {
+  transform: scale(1.05) rotate(5deg);
+  filter: drop-shadow(0 0 15px var(--accent));
+}
