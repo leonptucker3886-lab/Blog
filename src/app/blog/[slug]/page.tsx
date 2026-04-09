@@ -37,15 +37,6 @@ export default async function BlogPostPage({ params }: PageProps) {
       {/* Blog Post */}
       <section className="py-16 px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="text-right mb-4">
-            <a
-              href="/admin/login"
-              className="text-sm hover:text-[var(--accent)] transition-colors"
-              style={{ fontFamily: 'var(--font-orbitron)' }}
-            >
-              Admin Login
-            </a>
-          </div>
           <article>
             <header className="mb-8">
               <h1
