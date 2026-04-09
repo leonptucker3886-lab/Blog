@@ -12,7 +12,7 @@ export default function Header() {
         <div className="flex justify-center">
           <ThemeSwitcher />
         </div>
-        <div className="flex justify-center flex-wrap gap-3 mt-3">
+        <div className="grid grid-cols-2 gap-3 mt-3 max-w-md mx-auto">
           <Link
             href="/blog"
             className="spartan-shield group inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-[var(--primary)]/50 hover:border-[var(--accent)] bg-[var(--bg-lighter)]/30 hover:bg-[var(--bg-lighter)]/60 transition-all duration-300"
