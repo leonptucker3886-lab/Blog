@@ -36,7 +36,7 @@ export default function Header() {
               <path d="M6.5 3 L12 12 L17.5 3 L12 21" />
               <path d="M12 12 L3 6 L21 6" />
             </svg>
-            <span className="text-sm hover:text-[var(--accent)] transition-colors">Leon Link</span>
+            <span className="text-sm hover:text-[var(--accent)] transition-colors">The Coliseum</span>
             <svg className="w-5 h-5 group-hover:-rotate-45 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--accent)' }}>
               <path d="M17.5 3 L12 12 L6.5 3 L12 21" />
               <path d="M12 12 L21 6 L3 6" />
