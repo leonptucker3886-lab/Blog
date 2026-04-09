@@ -13,7 +13,7 @@ export default function ProfileCard() {
         <div className="w-28 h-28 rounded-full border-4 border-[var(--accent)] overflow-hidden 
                         bg-[var(--bg-dark)] flex items-center justify-center profile-glow">
           <img 
-            src="https://api.dicebear.com/9.x/adventurer/svg?seed=Leon&backgroundColor=1a1a2e&scale=85"
+            src="https://assets.kiloapps.io/user_510ee690-064d-4396-9031-fb485773f7b7/fed90a3f-c9cf-427e-abc6-9ab347c8346d/e1b16088-b584-42d3-85e9-91b3181a2d67.jpg"
             alt="Profile"
             className="w-full h-full object-cover"
           />
