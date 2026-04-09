@@ -12,32 +12,14 @@ export default function Home() {
     <main className="min-h-screen relative overflow-x-hidden">
       {/* Navigation */}
       <nav className="absolute top-0 left-0 right-0 z-20 p-6">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto flex justify-center">
           <Link
             href="/"
-            className="text-xl font-bold gradient-text block"
+            className="text-xl font-bold gradient-text"
             style={{ fontFamily: 'var(--font-cinzel)' }}
           >
             LEON-LINK
           </Link>
-          <div className="flex justify-center gap-8 mt-2">
-            <Link
-              href="/blog"
-              className="hover:text-[var(--accent)] transition-colors flex items-center gap-2"
-              style={{ fontFamily: 'var(--font-orbitron)' }}
-            >
-              📖 BLOG
-            </Link>
-            <a
-              href="https://hhhhu.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[var(--accent)] transition-colors flex items-center gap-2"
-              style={{ fontFamily: 'var(--font-orbitron)' }}
-            >
-              🎰 SUNNFUN SLOTS
-            </a>
-          </div>
         </div>
       </nav>
 
