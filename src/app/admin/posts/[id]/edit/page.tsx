@@ -17,9 +17,13 @@ async function getCurrentUser() {
   }
 
   const userId = parseInt(sessionId);
-  const user = await db.select().from(users).where(eq(users.id, userId)).limit(1);
-
-  return user.length > 0 ? user[0] : null;
+  try {
+    const user = await db.select().from(users).where(eq(users.id, userId)).limit(1);
+    return user.length > 0 ? user[0] : null;
+  } catch (error) {
+    console.error('Database error:', error);
+    return null;
+  }
 }
 
 interface EditPostPageProps {
@@ -36,7 +40,13 @@ export default async function EditPostPage({ params }: EditPostPageProps) {
     redirect('/admin/login');
   }
 
-  const post = await db.select().from(posts).where(eq(posts.id, postId)).limit(1);
+  let post;
+  try {
+    post = await db.select().from(posts).where(eq(posts.id, postId)).limit(1);
+  } catch (error) {
+    console.error('Database error:', error);
+    notFound();
+  }
 
   if (!post || post.length === 0) {
     notFound();
@@ -197,14 +207,19 @@ async function updatePostAction(formData: FormData) {
   // Parse tags
   const tagsArray = tags ? tags.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
 
-  await db.update(posts).set({
-    title,
-    subtitle: subtitle || null,
-    content,
-    slug,
-    tags: tagsArray.length > 0 ? JSON.stringify(tagsArray) : null,
-    readTime: readTime || null,
-  }).where(eq(posts.id, postId));
+  try {
+    await db.update(posts).set({
+      title,
+      subtitle: subtitle || null,
+      content,
+      slug,
+      tags: tagsArray.length > 0 ? JSON.stringify(tagsArray) : null,
+      readTime: readTime || null,
+    }).where(eq(posts.id, postId));
+  } catch (error) {
+    console.error('Database error:', error);
+    throw new Error('Failed to update post');
+  }
 
   redirect('/admin/posts');
 }

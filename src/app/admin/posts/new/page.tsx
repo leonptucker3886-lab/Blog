@@ -16,9 +16,13 @@ async function getCurrentUser() {
   }
 
   const userId = parseInt(sessionId);
-  const user = await db.select().from(users).where(eq(users.id, userId)).limit(1);
-
-  return user.length > 0 ? user[0] : null;
+  try {
+    const user = await db.select().from(users).where(eq(users.id, userId)).limit(1);
+    return user.length > 0 ? user[0] : null;
+  } catch (error) {
+    console.error('Database error:', error);
+    return null;
+  }
 }
 
 export default async function NewPostPage() {
@@ -163,14 +167,19 @@ async function createPostAction(formData: FormData) {
   // Parse tags
   const tagsArray = tags ? tags.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
 
-  await db.insert(posts).values({
-    title,
-    subtitle: subtitle || null,
-    content,
-    slug,
-    tags: tagsArray.length > 0 ? JSON.stringify(tagsArray) : null,
-    readTime: readTime || null,
-  });
+  try {
+    await db.insert(posts).values({
+      title,
+      subtitle: subtitle || null,
+      content,
+      slug,
+      tags: tagsArray.length > 0 ? JSON.stringify(tagsArray) : null,
+      readTime: readTime || null,
+    });
+  } catch (error) {
+    console.error('Database error:', error);
+    throw new Error('Failed to create post');
+  }
 
   redirect('/admin');
 }

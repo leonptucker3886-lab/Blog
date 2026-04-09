@@ -18,7 +18,13 @@ interface BlogPost {
 }
 
 export default async function BlogIndex() {
-  const blogPosts: BlogPost[] = await db.select().from(posts).orderBy(desc(posts.createdAt));
+  let blogPosts: BlogPost[] = [];
+  try {
+    blogPosts = await db.select().from(posts).orderBy(desc(posts.createdAt));
+  } catch (error) {
+    console.error('Database error:', error);
+    // Fallback: empty array
+  }
 
   return (
     <main className="min-h-screen relative overflow-x-hidden">

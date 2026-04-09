@@ -16,9 +16,13 @@ async function getCurrentUser() {
   }
 
   const userId = parseInt(sessionId);
-  const user = await db.select().from(users).where(eq(users.id, userId)).limit(1);
-
-  return user.length > 0 ? user[0] : null;
+  try {
+    const user = await db.select().from(users).where(eq(users.id, userId)).limit(1);
+    return user.length > 0 ? user[0] : null;
+  } catch (error) {
+    console.error('Database error:', error);
+    return null;
+  }
 }
 
 export default async function ManagePostsPage() {
@@ -28,7 +32,13 @@ export default async function ManagePostsPage() {
     redirect('/admin/login');
   }
 
-  const allPosts = await db.select().from(posts).orderBy(desc(posts.createdAt));
+  let allPosts: any[] = [];
+  try {
+    allPosts = await db.select().from(posts).orderBy(desc(posts.createdAt));
+  } catch (error) {
+    console.error('Database error:', error);
+    allPosts = [];
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -152,7 +162,12 @@ async function deletePostAction(formData: FormData) {
 
   const postId = parseInt(formData.get('postId') as string);
 
-  await db.delete(posts).where(eq(posts.id, postId));
+  try {
+    await db.delete(posts).where(eq(posts.id, postId));
+  } catch (error) {
+    console.error('Database error:', error);
+    throw new Error('Failed to delete post');
+  }
 
   redirect('/admin/posts');
 }

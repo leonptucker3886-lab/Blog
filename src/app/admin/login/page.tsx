@@ -67,7 +67,13 @@ async function loginAction(formData: FormData) {
     throw new Error('Email and password are required');
   }
 
-  const user = await db.select().from(users).where(eq(users.email, email)).limit(1);
+  let user;
+  try {
+    user = await db.select().from(users).where(eq(users.email, email)).limit(1);
+  } catch (error) {
+    console.error('Database error:', error);
+    throw new Error('Service temporarily unavailable');
+  }
 
   if (!user || user.length === 0) {
     throw new Error('Invalid credentials');

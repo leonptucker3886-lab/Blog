@@ -16,9 +16,13 @@ async function getCurrentUser() {
   }
 
   const userId = parseInt(sessionId);
-  const user = await db.select().from(users).where(eq(users.id, userId)).limit(1);
-
-  return user.length > 0 ? user[0] : null;
+  try {
+    const user = await db.select().from(users).where(eq(users.id, userId)).limit(1);
+    return user.length > 0 ? user[0] : null;
+  } catch (error) {
+    console.error('Database error:', error);
+    return null;
+  }
 }
 
 export default async function AdminDashboard() {

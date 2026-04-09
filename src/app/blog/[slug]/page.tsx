@@ -13,11 +13,17 @@ interface PageProps {
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
 
-  const post = await db
-    .select()
-    .from(posts)
-    .where(eq(posts.slug, slug))
-    .limit(1);
+  let post;
+  try {
+    post = await db
+      .select()
+      .from(posts)
+      .where(eq(posts.slug, slug))
+      .limit(1);
+  } catch (error) {
+    console.error('Database error:', error);
+    notFound();
+  }
 
   if (!post || post.length === 0) {
     notFound();
