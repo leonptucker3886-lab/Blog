@@ -1,12 +1,9 @@
+"use client";
+
 import Link from 'next/link';
 import LeonLinkLogo from '@/components/LeonLinkLogo';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import { MilestoneBadges } from '@/components/MilestoneBadges';
-
-export const metadata = {
-  title: 'Understanding DARVO: Narcissism, Manipulation Tactics | Leon-Link',
-  description: 'An educational guide to recognizing DARVO abusive patterns in relationships - Deny, Attack, Reverse Victim and Offender.',
-};
 
 export default function DARVOBlogPost() {
   return (
