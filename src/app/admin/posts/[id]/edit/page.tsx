@@ -6,6 +6,8 @@ import { eq } from 'drizzle-orm';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 async function getCurrentUser() {
   const cookieStore = await cookies();
   const sessionId = cookieStore.get('admin_session')?.value;

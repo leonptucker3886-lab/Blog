@@ -5,6 +5,8 @@ import { users } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 async function getCurrentUser() {
   const cookieStore = await cookies();
   const sessionId = cookieStore.get('admin_session')?.value;

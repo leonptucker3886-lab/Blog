@@ -1,7 +1,18 @@
-// @ts-ignore
-import { Database } from "bun:sqlite";
-import { drizzle } from "drizzle-orm/bun-sqlite";
+import { createDatabase } from "@kilocode/app-builder-db";
 import * as schema from "./schema";
 
-const sqlite = new Database("sqlite.db");
-export const db = drizzle(sqlite, { schema });
+let dbInstance: ReturnType<typeof createDatabase> | null = null;
+
+function getDb() {
+  if (!dbInstance) {
+    dbInstance = createDatabase(schema);
+  }
+  return dbInstance;
+}
+
+export const db = new Proxy({} as ReturnType<typeof createDatabase>, {
+  get(target, prop) {
+    const db = getDb();
+    return db[prop as keyof typeof db];
+  },
+});

@@ -5,6 +5,8 @@ import { users } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { cookies } from 'next/headers';
 
+export const dynamic = 'force-dynamic';
+
 export default function AdminLoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
