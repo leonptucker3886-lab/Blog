@@ -15,10 +15,12 @@ export default function Home() {
       <MilestoneBadges />
       
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-[var(--bg-dark)]/80 backdrop-blur-sm border-b border-[var(--primary)]/20">
-        <div className="max-w-6xl mx-auto px-6 py-4">
+      <header className="sticky top-0 z-40 bg-[var(--bg-dark)]/80 backdrop-blur-sm border-b border-[var(--primary)]/20 relative">
+        <div className="w-full px-6 py-4">
           <LeonLinkLogo />
-          <ThemeSwitcher />
+          <div className="absolute top-4 right-6">
+            <ThemeSwitcher />
+          </div>
         </div>
       </header>
 
