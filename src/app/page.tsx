@@ -26,13 +26,13 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative overflow-x-hidden">
-      <ThemeSwitcher />
       <MilestoneBadges />
       
       {/* Header */}
       <header className="sticky top-0 z-40 bg-[var(--bg-dark)]/80 backdrop-blur-sm border-b border-[var(--primary)]/20">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <LeonLinkLogo />
+          <ThemeSwitcher />
         </div>
       </header>
 
