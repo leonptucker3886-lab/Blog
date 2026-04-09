@@ -53,6 +53,17 @@ export default function Header() {
             <span className="text-2xl" style={{ color: '#ffd700' }}>♠</span>
             <span className="text-sm hover:text-[var(--accent)] transition-colors">SunNFun Slots</span>
           </a>
+
+          <a
+            href="https://clarify-drop-ai.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="spartan-shield group inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-[var(--primary)]/50 hover:border-[var(--accent)] bg-[var(--bg-lighter)]/30 hover:bg-[var(--bg-lighter)]/60 transition-all duration-300"
+            style={{ fontFamily: 'var(--font-orbitron)' }}
+          >
+            <span className="text-2xl" style={{ color: '#ffd700' }}>👁️</span>
+            <span className="text-sm hover:text-[var(--accent)] transition-colors">Clarity Drop AI</span>
+          </a>
         </div>
       </div>
     </header>
