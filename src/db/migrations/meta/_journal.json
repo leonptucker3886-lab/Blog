@@ -8,6 +8,13 @@
       "when": 1775731182999,
       "tag": "0000_bouncy_miracleman",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1775733861770,
+      "tag": "0001_giant_tombstone",
+      "breakpoints": true
     }
   ]
 }

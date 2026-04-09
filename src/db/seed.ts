@@ -1,7 +1,20 @@
 import { db } from './index';
-import { posts } from './schema';
+import { posts, users } from './schema';
+import { eq } from 'drizzle-orm';
+import bcrypt from 'bcrypt';
 
 async function seed() {
+  // Create admin user if not exists
+  const existingAdmin = await db.select().from(users).where(eq(users.email, 'admin@leonlink.com')).limit(1);
+  if (existingAdmin.length === 0) {
+    const hashedPassword = await bcrypt.hash('admin123', 10);
+    await db.insert(users).values({
+      email: 'admin@leonlink.com',
+      passwordHash: hashedPassword,
+    });
+    console.log('Admin user created: admin@leonlink.com / admin123');
+  }
+
   // Clear existing posts
   await db.delete(posts);
 
