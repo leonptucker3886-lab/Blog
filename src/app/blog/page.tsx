@@ -33,6 +33,15 @@ export default async function BlogIndex() {
       {/* Blog Index */}
       <section className="py-16 px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
+          <div className="text-right mb-4">
+            <a
+              href="/admin/login"
+              className="text-sm hover:text-[var(--accent)] transition-colors"
+              style={{ fontFamily: 'var(--font-orbitron)' }}
+            >
+              Admin Login
+            </a>
+          </div>
           <h1
             className="text-4xl md:text-5xl font-bold gradient-text mb-4 text-center"
             style={{ fontFamily: 'var(--font-cinzel)' }}
