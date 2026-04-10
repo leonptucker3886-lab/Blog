@@ -17,13 +17,52 @@ interface BlogPost {
   createdAt: Date | null;
 }
 
+// Fallback posts for when database is not available
+const fallbackPosts: BlogPost[] = [
+  {
+    id: 1,
+    slug: 'darvo',
+    title: 'Understanding DARVO',
+    subtitle: 'Narcissism, Manipulation Tactics, and How to Protect Yourself',
+    content: `<p class="text-lg mb-8">
+      DARVO stands for <strong>Deny, Attack, Reverse Victim and Offender</strong>. It was coined in the 1990s by psychologist Dr. Jennifer Freyd in her research on betrayal trauma and perpetrator responses—particularly in cases of sexual abuse, though it applies broadly to narcissistic and abusive dynamics today.
+    </p>
+    <p class="mb-6">
+      This blog post breaks down DARVO clearly, explores related narcissistic tactics, and offers practical steps for recognition and recovery.
+    </p>`,
+    tags: JSON.stringify(['narcissism', 'DARVO', 'abuse', 'manipulation', 'mental health']),
+    readTime: '15 min read',
+    createdAt: new Date('2024-01-01')
+  },
+  {
+    id: 2,
+    slug: 'epic-story-life-big-bang-today',
+    title: 'The Epic Story of Life: From the Big Bang to Today – A Straightforward Timeline',
+    subtitle: null,
+    content: `<p class="text-lg mb-8">
+      The history of the universe and life on Earth spans 13.8 billion years. Most of it happened long before humans existed. Here is a matter-of-fact look at the most important events that shaped everything we know, from the birth of the cosmos to the world we live in now.
+    </p>
+    <p class="mb-6">
+      We occupy an almost impossibly thin slice of this 13.8-billion-year story. Every atom in your body was forged in ancient stars. Every breath you take carries oxygen first produced by microbes billions of years ago. Life did not appear suddenly—it was the result of countless cosmic and planetary processes that built upon each other, step by step.
+    </p>`,
+    tags: JSON.stringify(['history', 'timeline', 'universe', 'life', 'evolution']),
+    readTime: '10 min read',
+    createdAt: new Date('2024-01-02')
+  }
+];
+
 export default async function BlogIndex() {
   let blogPosts: BlogPost[] = [];
   try {
     blogPosts = await db.select().from(posts).orderBy(desc(posts.createdAt));
+    if (blogPosts.length === 0) {
+      // If db is available but empty, use fallback
+      blogPosts = fallbackPosts;
+    }
   } catch (error) {
     console.error('Database error:', error);
-    // Fallback: empty array
+    // Fallback to hardcoded posts
+    blogPosts = fallbackPosts;
   }
 
   return (
