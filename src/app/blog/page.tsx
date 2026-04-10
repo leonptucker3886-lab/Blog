@@ -1,8 +1,8 @@
+'use client';
+
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { MilestoneBadges } from '@/components/MilestoneBadges';
-import { db } from '@/db';
-import { posts } from '@/db/schema';
-import { desc } from 'drizzle-orm';
 
 export const dynamic = 'force-dynamic';
 
@@ -139,19 +139,35 @@ const fallbackPosts: BlogPost[] = [
   }
 ];
 
-export default async function BlogIndex() {
-  let blogPosts: BlogPost[] = [];
-  try {
-    blogPosts = await db.select().from(posts).orderBy(desc(posts.createdAt));
-    if (blogPosts.length === 0) {
-      // If db is available but empty, use fallback
-      blogPosts = fallbackPosts;
-    }
-  } catch (error) {
-    console.error('Database error:', error);
-    // Fallback to hardcoded posts
-    blogPosts = fallbackPosts;
-  }
+export default function BlogIndex() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  // Get all unique tags for categories
+  const allCategories = useMemo(() => {
+    const tags = new Set<string>();
+    fallbackPosts.forEach(post => {
+      const postTags = post.tags ? JSON.parse(post.tags) : [];
+      postTags.forEach((tag: string) => tags.add(tag));
+    });
+    return ['All', ...Array.from(tags).sort()];
+  }, []);
+
+  // Filter posts based on search and category
+  const filteredPosts = useMemo(() => {
+    return fallbackPosts.filter(post => {
+      const matchesSearch = searchTerm === '' ||
+        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.subtitle?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (post.tags && JSON.parse(post.tags).some((tag: string) => tag.toLowerCase().includes(searchTerm.toLowerCase())));
+
+      const matchesCategory = selectedCategory === 'All' ||
+        (post.tags && JSON.parse(post.tags).includes(selectedCategory));
+
+      return matchesSearch && matchesCategory;
+    });
+  }, [searchTerm, selectedCategory]);
 
   return (
     <main className="min-h-screen relative overflow-x-hidden">
@@ -171,8 +187,28 @@ export default async function BlogIndex() {
             Discussions on mental health, psychology, technology, philosophy, and everything in between.
           </p>
 
+          {/* Search and Filter */}
+          <div className="flex flex-col md:flex-row gap-4 mb-8 max-w-2xl mx-auto">
+            <input
+              type="text"
+              placeholder="Search posts..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              {allCategories.map(category => (
+                <option key={category} value={category}>{category}</option>
+              ))}
+            </select>
+          </div>
+
           <div className="space-y-6">
-            {blogPosts.map((post) => {
+            {filteredPosts.map((post: BlogPost) => {
               const tags = post.tags ? JSON.parse(post.tags) : [];
               const description = post.content.substring(0, 200) + '...';
 
@@ -233,9 +269,15 @@ export default async function BlogIndex() {
             })}
           </div>
 
-          {blogPosts.length === 0 && (
+          {filteredPosts.length === 0 && (
             <p className="text-center mt-8" style={{ color: 'var(--text-secondary)' }}>
-              No blog posts yet.
+              No blog posts found matching your search.
+            </p>
+          )}
+
+          {filteredPosts.length > 0 && (
+            <p className="text-center mb-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
+              Showing {filteredPosts.length} post{filteredPosts.length !== 1 ? 's' : ''}
             </p>
           )}
 
