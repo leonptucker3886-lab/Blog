@@ -39,12 +39,6 @@ export default function LeonLinkLogo() {
             style={{ fontFamily: 'var(--font-cinzel)' }}>
           THE-COLISEUM
         </h1>
-        <p className="text-sm md:text-base tracking-widest uppercase" style={{
-          fontFamily: 'var(--font-orbitron)',
-          color: 'var(--text-secondary)'
-        }}>
-          THE ARENA
-        </p>
       </div>
     </div>
   );
