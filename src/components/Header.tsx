@@ -13,18 +13,6 @@ export default function Header() {
           <ThemeSwitcher />
         </div>
         <div className="grid grid-cols-2 gap-3 mt-3 max-w-md mx-auto">
-          <Link
-            href="/blog"
-            className="spartan-shield group inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-[var(--primary)]/50 hover:border-[var(--accent)] bg-[var(--bg-lighter)]/30 hover:bg-[var(--bg-lighter)]/60 transition-all duration-300"
-            style={{ fontFamily: 'var(--font-orbitron)' }}
-          >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--accent)' }}>
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-            </svg>
-            <span className="text-sm hover:text-[var(--accent)] transition-colors">Blog</span>
-          </Link>
-
           <a
             href="https://leonlink.vercel.app/"
             target="_blank"
