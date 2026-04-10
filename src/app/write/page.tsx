@@ -1,52 +1,45 @@
-import { redirect } from 'next/navigation';
-import { cookies } from 'next/headers';
-import { db } from '@/db';
-import { users, posts } from '@/db/schema';
-import { eq } from 'drizzle-orm';
-import Link from 'next/link';
+'use client';
 
-export const dynamic = 'force-dynamic';
+import { useState } from 'react';
 
-async function getCurrentUser() {
-  const cookieStore = await cookies();
-  const sessionId = cookieStore.get('admin_session')?.value;
+export default function WritePage() {
+  const [title, setTitle] = useState('');
+  const [subtitle, setSubtitle] = useState('');
+  const [content, setContent] = useState('');
+  const [slug, setSlug] = useState('');
+  const [tags, setTags] = useState('');
+  const [readTime, setReadTime] = useState('');
 
-  if (!sessionId) {
-    return null;
-  }
-
-  const userId = parseInt(sessionId);
-  try {
-    const user = await db.select().from(users).where(eq(users.id, userId)).limit(1);
-    return user.length > 0 ? user[0] : null;
-  } catch (error) {
-    console.error('Database error:', error);
-    return null;
-  }
-}
-
-export default async function NewPostPage() {
-  const user = await getCurrentUser();
-
-  if (!user) {
-    redirect('/admin/login');
-  }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // For demo purposes, just log the data
+    const post = {
+      title,
+      subtitle,
+      content,
+      slug,
+      tags,
+      readTime,
+      createdAt: new Date()
+    };
+    console.log('New blog post:', post);
+    alert('Blog post submitted! (Demo - not saved)');
+    // Reset form
+    setTitle('');
+    setSubtitle('');
+    setContent('');
+    setSlug('');
+    setTags('');
+    setReadTime('');
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4">
         <div className="bg-white shadow rounded-lg p-6">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-2xl font-bold text-gray-900">Create New Blog Post</h1>
-            <Link
-              href="/admin"
-              className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
-            >
-              Back to Dashboard
-            </Link>
-          </div>
+          <h1 className="text-2xl font-bold text-gray-900 mb-6">Write a New Blog Post</h1>
 
-          <form action={createPostAction} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="title" className="block text-sm font-medium text-gray-700">
                 Title *
@@ -54,7 +47,8 @@ export default async function NewPostPage() {
               <input
                 type="text"
                 id="title"
-                name="title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
                 required
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Enter post title"
@@ -68,7 +62,8 @@ export default async function NewPostPage() {
               <input
                 type="text"
                 id="subtitle"
-                name="subtitle"
+                value={subtitle}
+                onChange={(e) => setSubtitle(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Enter post subtitle"
               />
@@ -81,7 +76,8 @@ export default async function NewPostPage() {
               <input
                 type="text"
                 id="slug"
-                name="slug"
+                value={slug}
+                onChange={(e) => setSlug(e.target.value)}
                 required
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="url-friendly-slug"
@@ -95,7 +91,8 @@ export default async function NewPostPage() {
               <input
                 type="text"
                 id="tags"
-                name="tags"
+                value={tags}
+                onChange={(e) => setTags(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="tag1, tag2, tag3"
               />
@@ -108,7 +105,8 @@ export default async function NewPostPage() {
               <input
                 type="text"
                 id="readTime"
-                name="readTime"
+                value={readTime}
+                onChange={(e) => setReadTime(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="5 min read"
               />
@@ -120,7 +118,8 @@ export default async function NewPostPage() {
               </label>
               <textarea
                 id="content"
-                name="content"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
                 rows={15}
                 required
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
@@ -133,7 +132,7 @@ export default async function NewPostPage() {
                 type="submit"
                 className="px-6 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                Create Post
+                Submit Blog Post
               </button>
             </div>
           </form>
@@ -141,45 +140,4 @@ export default async function NewPostPage() {
       </div>
     </div>
   );
-}
-
-async function createPostAction(formData: FormData) {
-  'use server';
-
-  const cookieStore = await cookies();
-  const sessionId = cookieStore.get('admin_session')?.value;
-
-  if (!sessionId) {
-    redirect('/admin/login');
-  }
-
-  const title = formData.get('title') as string;
-  const subtitle = formData.get('subtitle') as string;
-  const slug = formData.get('slug') as string;
-  const tags = formData.get('tags') as string;
-  const readTime = formData.get('readTime') as string;
-  const content = formData.get('content') as string;
-
-  if (!title || !slug || !content) {
-    throw new Error('Title, slug, and content are required');
-  }
-
-  // Parse tags
-  const tagsArray = tags ? tags.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
-
-  try {
-    await db.insert(posts).values({
-      title,
-      subtitle: subtitle || null,
-      content,
-      slug,
-      tags: tagsArray.length > 0 ? JSON.stringify(tagsArray) : null,
-      readTime: readTime || null,
-    });
-  } catch (error) {
-    console.error('Database error:', error);
-    throw new Error('Failed to create post');
-  }
-
-  redirect('/admin');
 }

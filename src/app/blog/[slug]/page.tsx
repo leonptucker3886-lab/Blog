@@ -90,15 +90,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       {/* Blog Post */}
       <section className="py-16 px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="text-right mb-4">
-            <a
-              href="/admin/login"
-              className="text-sm hover:text-[var(--accent)] transition-colors"
-              style={{ fontFamily: 'var(--font-orbitron)' }}
-            >
-              Admin Login
-            </a>
-          </div>
+
           <article>
             <header className="mb-8">
               <h1
@@ -165,7 +157,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <footer className="border-t border-[var(--primary)]/20 py-8 px-6 z-10 relative">
         <div className="max-w-4xl mx-auto text-center">
           <p style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-orbitron)' }}>
-            © 2026 THE COLISEUM • ALL RIGHTS RESERVED • <a href="/admin/login" className="hover:text-[var(--accent)] transition-colors">Admin</a>
+            © 2026 THE COLISEUM • ALL RIGHTS RESERVED
           </p>
         </div>
       </footer>
