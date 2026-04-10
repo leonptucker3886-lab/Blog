@@ -18,6 +18,7 @@
 - [x] Custom SVG logos (sword, Coliseum, cow with crossed halo)
 - [x] Minimal site redesign with bottom navigation
 - [x] Fallback content for production without database
+- [x] Art of Manliness-style redesign: header nav, featured posts grid, category sections, newsletter signup, consistent footer
 
 ## Current Structure
 
@@ -97,3 +98,4 @@ export async function GET() {
 | Initial | Template created with base setup |
 | 2026-04-10 | Full blog site development: database, admin panel, theming, blog features |
 | 2026-04-10 | Rebranding to "No Sacred Cows": minimal design, bottom nav, cow logo, blog focus |
+| 2026-04-10 | Art of Manliness-style redesign: header nav, featured posts, category sections, newsletter, footer |
