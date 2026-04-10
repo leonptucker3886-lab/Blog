@@ -407,6 +407,9 @@ export default function BlogIndex() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
+  // Define main categories
+  const mainCategories = ['Trump', '$$$', 'Mental Health', 'The Universe', 'Artificial Intelligence'];
+
   // Get all unique tags for categories
   const allCategories = useMemo(() => {
     const tags = new Set<string>();
@@ -415,22 +418,62 @@ export default function BlogIndex() {
       postTags.forEach((tag: string) => tags.add(tag));
     });
     return ['All', ...Array.from(tags).sort()];
-  }, []);
+  }, [fallbackPosts]);
+
+  // Group posts by main categories
+  const categorizedPosts = useMemo(() => {
+    const groups: { [key: string]: typeof fallbackPosts } = {};
+    mainCategories.forEach(cat => {
+      groups[cat] = [];
+    });
+
+    fallbackPosts.forEach(post => {
+      const tags = post.tags ? JSON.parse(post.tags) : [];
+      for (const cat of mainCategories) {
+        if (cat === 'Trump' && tags.includes('Trump')) {
+          groups[cat].push(post);
+          break;
+        } else if (cat === '$$$' && tags.includes('$$$ Stuff')) {
+          groups[cat].push(post);
+          break;
+        } else if (cat === 'Mental Health' && tags.includes('Mental Health')) {
+          groups[cat].push(post);
+          break;
+        } else if (cat === 'The Universe' && (tags.includes('universe') || tags.includes('life') || tags.includes('evolution'))) {
+          groups[cat].push(post);
+          break;
+        } else if (cat === 'Artificial Intelligence' && tags.includes('AI')) {
+          groups[cat].push(post);
+          break;
+        }
+      }
+    });
+
+    return groups;
+  }, [mainCategories, fallbackPosts]);
 
   // Filter posts based on search and category
   const filteredPosts = useMemo(() => {
-    return fallbackPosts.filter(post => {
-      const matchesSearch = searchTerm === '' ||
-        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.subtitle?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        stripHtml(post.content).toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (post.tags && JSON.parse(post.tags).some((tag: string) => tag.toLowerCase().includes(searchTerm.toLowerCase())));
+    if (selectedCategory === 'All') {
+      return fallbackPosts.filter(post => {
+        return searchTerm === '' ||
+          post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          post.subtitle?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          stripHtml(post.content).toLowerCase().includes(searchTerm.toLowerCase()) ||
+          (post.tags && JSON.parse(post.tags).some((tag: string) => tag.toLowerCase().includes(searchTerm.toLowerCase())));
+      });
+    } else {
+      return fallbackPosts.filter(post => {
+        const matchesCategory = post.tags && JSON.parse(post.tags).includes(selectedCategory);
+        const matchesSearch = searchTerm === '' ||
+          post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          post.subtitle?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          stripHtml(post.content).toLowerCase().includes(searchTerm.toLowerCase()) ||
+          (post.tags && JSON.parse(post.tags).some((tag: string) => tag.toLowerCase().includes(searchTerm.toLowerCase())));
 
-      const matchesCategory = selectedCategory === 'All' ||
-        (post.tags && JSON.parse(post.tags).includes(selectedCategory));
-
-      return matchesSearch && matchesCategory;
-    });
+        return matchesCategory && matchesSearch;
+      });
+    }
   }, [searchTerm, selectedCategory]);
 
   return (
@@ -471,8 +514,20 @@ export default function BlogIndex() {
             </select>
           </div>
 
-          <div className="space-y-6">
-            {filteredPosts.map((post: BlogPost) => {
+          {selectedCategory === 'All' ? (
+            <div className="space-y-12">
+              {mainCategories.map(category => {
+                const posts = categorizedPosts[category];
+                if (posts.length === 0) return null;
+
+                return (
+                  <div key={category} className="space-y-6">
+                    <h2 className="text-2xl font-bold gradient-text border-b border-[var(--accent)]/30 pb-2"
+                        style={{ fontFamily: 'var(--font-cinzel)' }}>
+                      {category}
+                    </h2>
+                    <div className="space-y-6">
+                      {posts.map((post: BlogPost) => {
               const tags = post.tags ? JSON.parse(post.tags) : [];
               const description = stripHtml(post.content).substring(0, 200) + '...';
 
@@ -531,15 +586,82 @@ export default function BlogIndex() {
                 </Link>
               );
             })}
-          </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {filteredPosts.map((post: BlogPost) => {
+                const tags = post.tags ? JSON.parse(post.tags) : [];
+                const description = stripHtml(post.content).substring(0, 200) + '...';
 
-          {filteredPosts.length === 0 && (
+                return (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="block group p-6 rounded-lg border border-[var(--primary)]/30 bg-[var(--bg-lighter)]/30 hover:bg-[var(--bg-lighter)]/60 hover:border-[var(--accent)]/50 transition-all duration-300"
+                  >
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                      <div className="flex-1">
+                        <h2
+                          className="text-xl md:text-2xl font-bold mb-2 group-hover:text-[var(--accent)] transition-colors"
+                          style={{ fontFamily: 'var(--font-cinzel)', color: 'var(--primary)' }}
+                        >
+                          {post.title}
+                        </h2>
+                        {post.subtitle && (
+                          <p className="text-sm mb-3" style={{ color: 'var(--accent)', fontFamily: 'var(--font-orbitron)' }}>
+                            {post.subtitle}
+                          </p>
+                        )}
+                        <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
+                          {description}
+                        </p>
+                        {tags.length > 0 && (
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {tags.map((tag: string) => (
+                              <span key={tag} className="px-3 py-1 text-sm rounded-full border border-[var(--accent)]/50 bg-[var(--accent)]/10"
+                                style={{ color: 'var(--accent)', fontFamily: 'var(--font-orbitron)' }}>
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        <div className="flex items-center gap-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
+                          <span>{post.createdAt ? new Date(post.createdAt).toLocaleDateString() : 'Unknown date'}</span>
+                          {post.readTime && (
+                            <>
+                              <span>•</span>
+                              <span>{post.readTime}</span>
+                            </>
+                          )}
+                        </div>
+                        <div className="mt-4 inline-flex items-center gap-1 text-indigo-600 hover:text-indigo-800 font-medium">
+                          Continue reading
+                          <span style={{ color: '#ffd700' }}>→</span>
+                        </div>
+                      </div>
+                      <div className="flex-shrink-0">
+                        <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" style={{ color: 'var(--accent)' }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+
+          {selectedCategory !== 'All' && filteredPosts.length === 0 && (
             <p className="text-center mt-8" style={{ color: 'var(--text-secondary)' }}>
               No blog posts found matching your search.
             </p>
           )}
 
-          {filteredPosts.length > 0 && (
+          {selectedCategory !== 'All' && filteredPosts.length > 0 && (
             <p className="text-center mb-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
               Showing {filteredPosts.length} post{filteredPosts.length !== 1 ? 's' : ''}
             </p>
