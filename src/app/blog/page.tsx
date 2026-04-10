@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { MilestoneBadges } from '@/components/MilestoneBadges';
 
@@ -560,8 +561,21 @@ function stripHtml(html: string): string {
 }
 
 export default function BlogIndex() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const categoryParam = searchParams.get('category');
+
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState(categoryParam || 'All');
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    if (category === 'All') {
+      router.push('/blog');
+    } else {
+      router.push(`/blog?category=${encodeURIComponent(category)}`);
+    }
+  };
 
   // Define main categories
   const mainCategories = useMemo(() => ['Trump', '$$$', 'Mental Health', 'The Universe', 'Artificial Intelligence', 'History', 'Culture', 'Science', 'Religion'], []);
@@ -653,11 +667,11 @@ export default function BlogIndex() {
           {/* Category Links */}
           <div className="flex justify-center flex-wrap gap-3 mb-8">
             <button
-              onClick={() => setSelectedCategory('All')}
+              onClick={() => handleCategoryChange('All')}
               className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg border transition-all duration-300 ${
                 selectedCategory === 'All'
-                  ? 'border-[var(--accent)] bg-[var(--bg-lighter)]/60'
-                  : 'border-[var(--primary)]/50 bg-[var(--bg-lighter)]/30 hover:border-[var(--accent)] hover:bg-[var(--bg-lighter)]/60'
+                  ? 'border-blue-500 bg-blue-50'
+                  : 'border-gray-300 bg-gray-50 hover:border-blue-400 hover:bg-blue-50'
               }`}
               style={{ fontFamily: 'var(--font-orbitron)' }}
             >
@@ -666,11 +680,11 @@ export default function BlogIndex() {
             {mainCategories.map(category => (
               <button
                 key={category}
-                onClick={() => setSelectedCategory(category)}
+                onClick={() => handleCategoryChange(category)}
                 className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg border transition-all duration-300 ${
                   selectedCategory === category
-                    ? 'border-[var(--accent)] bg-[var(--bg-lighter)]/60'
-                    : 'border-[var(--primary)]/50 bg-[var(--bg-lighter)]/30 hover:border-[var(--accent)] hover:bg-[var(--bg-lighter)]/60'
+                    ? 'border-blue-500 bg-blue-50'
+                    : 'border-gray-300 bg-gray-50 hover:border-blue-400 hover:bg-blue-50'
                 }`}
                 style={{ fontFamily: 'var(--font-orbitron)' }}
               >
@@ -700,7 +714,7 @@ export default function BlogIndex() {
             />
             <select
               value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
+              onChange={(e) => handleCategoryChange(e.target.value)}
               className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
               {allCategories.map(category => (
