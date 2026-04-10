@@ -9,9 +9,17 @@ export default function WritePage() {
   const [slug, setSlug] = useState('');
   const [tags, setTags] = useState('');
   const [readTime, setReadTime] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Check password
+    if (password !== 'admin123') {
+      alert('Incorrect password!');
+      return;
+    }
+
     // For demo purposes, just log the data
     const post = {
       title,
@@ -31,6 +39,7 @@ export default function WritePage() {
     setSlug('');
     setTags('');
     setReadTime('');
+    setPassword('');
   };
 
   return (
@@ -40,6 +49,20 @@ export default function WritePage() {
           <h1 className="text-2xl font-bold text-gray-900 mb-6">Write a New Blog Post</h1>
 
           <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                Password *
+              </label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="Enter password"
+              />
+            </div>
             <div>
               <label htmlFor="title" className="block text-sm font-medium text-gray-700">
                 Title *
