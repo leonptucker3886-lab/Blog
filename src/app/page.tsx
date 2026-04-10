@@ -80,9 +80,9 @@ const categoryPosts = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-white py-12">
+      <section className="bg-white py-12 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'var(--font-cinzel)' }}>
@@ -100,11 +100,11 @@ export default function Home() {
               <Link
                 key={post.id}
                 href={`/blog/${post.slug}`}
-                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200"
+                className="bg-white rounded-lg border border-gray-200 hover:shadow-md transition-all duration-300 overflow-hidden"
               >
                 <div className="p-6">
                   <div className="flex items-center mb-3">
-                    <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
+                    <span className="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded-full font-medium">
                       {post.category}
                     </span>
                   </div>
@@ -140,7 +140,7 @@ export default function Home() {
       </section>
 
       {/* Categories Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {Object.entries(categoryPosts).map(([category, posts]) => (
             <div key={category} className="mb-16">
@@ -160,7 +160,7 @@ export default function Home() {
                   <Link
                     key={post.id}
                     href={`/blog/${post.slug}`}
-                    className="bg-gray-50 hover:bg-gray-100 rounded-lg p-6 transition-colors duration-200 border border-gray-200"
+                    className="bg-white hover:bg-gray-50 rounded-lg p-6 transition-colors duration-200 border border-gray-200"
                   >
                     <h3 className="text-lg font-bold text-gray-900 mb-2 hover:text-blue-600 transition-colors" style={{ fontFamily: 'var(--font-cinzel)' }}>
                       {post.title}
@@ -178,7 +178,7 @@ export default function Home() {
       </section>
 
       {/* Newsletter/Signup Section */}
-      <section className="py-16 bg-blue-50">
+      <section className="py-16 bg-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'var(--font-cinzel)' }}>
             Stay Updated

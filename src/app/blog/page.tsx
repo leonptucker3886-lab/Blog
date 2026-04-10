@@ -658,8 +658,13 @@ export default function BlogIndex() {
     }
   }, [searchTerm, selectedCategory]);
 
+  // Get categories that have posts
+  const availableCategories = useMemo(() => {
+    return mainCategories.filter(cat => categorizedPosts[cat] && categorizedPosts[cat].length > 0);
+  }, [mainCategories, categorizedPosts]);
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Blog Index */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -677,7 +682,7 @@ export default function BlogIndex() {
             >
               <span className="text-sm">All</span>
             </button>
-            {mainCategories.map(category => (
+            {availableCategories.map(category => (
               <button
                 key={category}
                 onClick={() => handleCategoryChange(category)}
@@ -717,7 +722,8 @@ export default function BlogIndex() {
               onChange={(e) => handleCategoryChange(e.target.value)}
               className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
-              {allCategories.map(category => (
+              <option value="All">All</option>
+              {availableCategories.map(category => (
                 <option key={category} value={category}>{category}</option>
               ))}
             </select>
