@@ -21,6 +21,7 @@
 - [x] Art of Manliness-style redesign: header nav, featured posts grid, category sections, newsletter signup, consistent footer
 - [x] UI fixes: removed theme switcher, responsive search width, word wrapping to prevent overflow
 - [x] Mobile formatting: responsive elements, stack newsletter, prose readability
+- [x] Category navigation: clickable categories load filtered articles with URL params
 
 ## Current Structure
 
@@ -103,3 +104,4 @@ export async function GET() {
 | 2026-04-10 | Art of Manliness-style redesign: header nav, featured posts, category sections, newsletter, footer |
 | 2026-04-10 | UI fixes: removed theme switcher, responsive search, overflow prevention |
 | 2026-04-10 | Mobile formatting fixes and additional blog posts |
+| 2026-04-10 | Category navigation with URL params for filtering |
