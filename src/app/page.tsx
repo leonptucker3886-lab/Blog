@@ -36,10 +36,6 @@ export default function Home() {
       <section className="py-16 px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4"
-                style={{ fontFamily: 'var(--font-cinzel)' }}>
-              THE ARENA
-            </h2>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Discussions on Mental health, crypto, the origins of life, religion, sex, politics, nothing is out of text reach.
             </p>
