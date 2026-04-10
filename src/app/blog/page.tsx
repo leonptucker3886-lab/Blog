@@ -491,6 +491,66 @@ const fallbackPosts: BlogPost[] = [
     tags: JSON.stringify(['religion', 'history', 'evolution']),
     readTime: '3 min read',
     createdAt: new Date('2026-04-18')
+  },
+  {
+    id: 21,
+    slug: 'spaceballs-vs-star-wars',
+    title: 'Spaceballs vs. Star Wars: Comedy or Blasphemy?',
+    subtitle: 'Mel Brooks\' parody and its impact on sci-fi fandom',
+    content: `<p>Mel Brooks' 1987 film Spaceballs mercilessly parodies Star Wars, with characters like Lone Starr and Dark Helmet mimicking Luke Skywalker and Darth Vader. Fans debate whether this homage honors the original or undermines its legacy.</p>
+<p>Supporters argue Spaceballs celebrates Star Wars' cultural impact while poking fun at its clichés, much like Airplane! did for disaster movies. Critics say it cheapens the franchise, appealing to lowest common denominators.</p>
+<p>As parody becomes more common in media, Spaceballs raises questions about when homage becomes mockery. Does it enrich or erode the source material? The film's enduring popularity suggests parody can coexist with reverence.</p>`,
+    tags: JSON.stringify(['spaceballs', 'star wars', 'parody', 'culture']),
+    readTime: '3 min read',
+    createdAt: new Date('2026-04-19')
+  },
+  {
+    id: 22,
+    slug: 'culture-shock-nuances-50-cultures',
+    title: 'Culture Shock: 50 Nuances Across Cultures',
+    subtitle: 'Navigating the invisible rules of global etiquette',
+    content: `<p>Culture shock manifests in subtle ways across 50 cultures. In Japan, bowing depth indicates respect levels; in Brazil, personal space is minimal; in Saudi Arabia, gender segregation is norm. Understanding these nuances prevents faux pas.</p>
+<p>Westerners often assume universal norms, but greetings vary: cheek kisses in France, namaste in India, firm handshakes in Germany. Food taboos differ: no beef in India, no pork in Muslim countries, insects as delicacy in Thailand.</p>
+<p>Time perception varies too: polychronic cultures (Latin America) prioritize relationships over schedules, while monochronic ones (Germany) value punctuality. Embracing diversity requires suspending judgment and observing quietly.</p>`,
+    tags: JSON.stringify(['culture', 'shock', 'nuances', 'global']),
+    readTime: '4 min read',
+    createdAt: new Date('2026-04-20')
+  },
+  {
+    id: 23,
+    slug: 'squatting-poo-history',
+    title: 'The Squatting Poo: Ancient Wisdom or Modern Fad?',
+    subtitle: 'The history and health debate of natural defecation positions',
+    content: `<p>Squatting to defecate, common in Asia and Africa, is gaining Western attention. Proponents claim it prevents hemorrhoids and constipation by aligning the rectum naturally, unlike sitting on toilets.</p>
+<p>Anthropologists note humans evolved squatting; modern toilets may contribute to digestive issues. Studies show squatting reduces straining and improves bowel movements. However, critics argue toilets are hygienic and accessible for disabled people.</p>
+<p>As squat toilets appear in eco-friendly designs, the debate continues: tradition vs. modernity. Is squatting a healthier way, or just cultural preference? The answer may lie in individual physiology and comfort.</p>`,
+    tags: JSON.stringify(['squatting', 'poo', 'health', 'tradition']),
+    readTime: '3 min read',
+    createdAt: new Date('2026-04-21')
+  },
+  {
+    id: 24,
+    slug: 'shark-vs-bear-attacks',
+    title: 'Shark Attacks vs. Bear Attacks: Which is Deadlier?',
+    subtitle: 'Comparing ocean and wilderness threats with surprising statistics',
+    content: `<p>Sharks strike fear with Jaws imagery, but bears kill more people annually. In 2023, bears caused 11 fatalities worldwide vs. sharks' 6. Yet shark attacks get more media attention due to sensationalism.</p>
+<p>Bears attack in forests near human habitats; sharks in oceans during recreation. Bear encounters often involve surprise or food protection; shark attacks usually mistaken identity. Both are rare: lifetime odds of shark attack 1 in 11.5 million, bear 1 in 2.1 million.</p>
+<p>Fear vs. reality: sharks symbolize unknown depths, bears familiar wilderness. Education reduces risks—avoiding bear food storage, not swimming with injuries. The deadlier threat depends on location and behavior.</p>`,
+    tags: JSON.stringify(['shark', 'bear', 'attacks', 'statistics']),
+    readTime: '3 min read',
+    createdAt: new Date('2026-04-22')
+  },
+  {
+    id: 25,
+    slug: 'history-civilization-breakdown',
+    title: 'Breaking Down the History of Civilization',
+    subtitle: 'From hunter-gatherers to space age: key turning points',
+    content: `<p>Civilization began 10,000 years ago with agriculture in Mesopotamia, enabling settled communities. Writing (cuneiform) followed, preserving knowledge. River valleys fostered early civilizations: Nile (Egypt), Indus (India), Yellow (China).</p>
+<p>The Axial Age (800-200 BCE) brought philosophical revolutions: Buddhism, Confucianism, Greek philosophy. Industrial Revolution (1760-1840) mechanized production, urbanization. Information Age (1970s-present) digitized communication.</p>
+<p>Each era built on the last, but at costs: environmental degradation, inequality. Will future civilizations avoid past mistakes? History shows progress through trial and error, with humanity's resilience as constant.</p>`,
+    tags: JSON.stringify(['history', 'civilization', 'progress', 'timeline']),
+    readTime: '4 min read',
+    createdAt: new Date('2026-04-23')
   }
 ];
 
