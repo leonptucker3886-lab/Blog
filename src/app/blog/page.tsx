@@ -137,6 +137,10 @@ export default async function BlogIndex() {
                           </>
                         )}
                       </div>
+                      <div className="mt-4 inline-flex items-center gap-1 text-indigo-600 hover:text-indigo-800 font-medium">
+                        Continue reading
+                        <span style={{ color: '#ffd700' }}>→</span>
+                      </div>
                     </div>
                     <div className="flex-shrink-0">
                       <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" style={{ color: 'var(--accent)' }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
