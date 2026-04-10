@@ -484,59 +484,33 @@ export default function BlogIndex() {
       <section className="py-16 px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
 
-          {/* Navigation Links */}
+          {/* Category Links */}
           <div className="flex justify-center flex-wrap gap-3 mb-8">
-            <a
-              href="/blog"
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-[var(--primary)]/50 hover:border-[var(--accent)] bg-[var(--bg-lighter)]/30 hover:bg-[var(--bg-lighter)]/60 transition-all duration-300"
+            <button
+              onClick={() => setSelectedCategory('All')}
+              className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg border transition-all duration-300 ${
+                selectedCategory === 'All'
+                  ? 'border-[var(--accent)] bg-[var(--bg-lighter)]/60'
+                  : 'border-[var(--primary)]/50 bg-[var(--bg-lighter)]/30 hover:border-[var(--accent)] hover:bg-[var(--bg-lighter)]/60'
+              }`}
               style={{ fontFamily: 'var(--font-orbitron)' }}
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--accent)' }}>
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-              </svg>
-              <span className="text-sm hover:text-[var(--accent)] transition-colors">Blog</span>
-            </a>
-
-            <a
-              href="https://leonlink.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-[var(--primary)]/50 hover:border-[var(--accent)] bg-[var(--bg-lighter)]/30 hover:bg-[var(--bg-lighter)]/60 transition-all duration-300"
-              style={{ fontFamily: 'var(--font-orbitron)' }}
-            >
-              <svg className="w-5 h-5 group-hover:rotate-45 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--accent)' }}>
-                <path d="M6.5 3 L12 12 L17.5 3 L12 21" />
-                <path d="M12 12 L3 6 L21 6" />
-              </svg>
-              <span className="text-sm hover:text-[var(--accent)] transition-colors">Leon Link</span>
-              <svg className="w-5 h-5 group-hover:-rotate-45 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--accent)' }}>
-                <path d="M17.5 3 L12 12 L6.5 3 L12 21" />
-                <path d="M12 12 L21 6 L3 6" />
-              </svg>
-            </a>
-
-            <a
-              href="https://hhhhu.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-[var(--primary)]/50 hover:border-[var(--accent)] bg-[var(--bg-lighter)]/30 hover:bg-[var(--bg-lighter)]/60 transition-all duration-300"
-              style={{ fontFamily: 'var(--font-orbitron)' }}
-            >
-              <span className="text-2xl" style={{ color: '#ffd700' }}>♠</span>
-              <span className="text-sm hover:text-[var(--accent)] transition-colors">SunNFun Slots</span>
-            </a>
-
-            <a
-              href="https://clarify-drop-ai.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-[var(--primary)]/50 hover:border-[var(--accent)] bg-[var(--bg-lighter)]/30 hover:bg-[var(--bg-lighter)]/60 transition-all duration-300"
-              style={{ fontFamily: 'var(--font-orbitron)' }}
-            >
-              <span className="text-2xl" style={{ color: '#ffd700' }}>👁️</span>
-              <span className="text-sm hover:text-[var(--accent)] transition-colors">Clarity Drop AI</span>
-            </a>
+              <span className="text-sm">All</span>
+            </button>
+            {mainCategories.map(category => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg border transition-all duration-300 ${
+                  selectedCategory === category
+                    ? 'border-[var(--accent)] bg-[var(--bg-lighter)]/60'
+                    : 'border-[var(--primary)]/50 bg-[var(--bg-lighter)]/30 hover:border-[var(--accent)] hover:bg-[var(--bg-lighter)]/60'
+                }`}
+                style={{ fontFamily: 'var(--font-orbitron)' }}
+              >
+                <span className="text-sm">{category}</span>
+              </button>
+            ))}
           </div>
 
           <h1
