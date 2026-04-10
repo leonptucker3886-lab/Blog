@@ -134,11 +134,28 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Bottom Navigation */}
       <footer className="border-t border-[var(--primary)]/20 py-8 px-6 z-10 relative">
         <div className="max-w-4xl mx-auto text-center">
+          <div className="flex justify-center items-center gap-6 mb-4">
+            <Link
+              href="/"
+              className="text-xl font-bold gradient-text"
+              style={{ fontFamily: 'var(--font-cinzel)' }}
+            >
+              NO SACRED COWS
+            </Link>
+            <span style={{ color: 'var(--text-secondary)' }}>•</span>
+            <Link
+              href="/blog"
+              className="text-sm hover:text-[var(--accent)] transition-colors"
+              style={{ fontFamily: 'var(--font-orbitron)' }}
+            >
+              Blog
+            </Link>
+          </div>
           <p style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-orbitron)' }}>
-            © 2026 THE COLISEUM • ALL RIGHTS RESERVED
+            © 2026 No Sacred Cows • All Rights Reserved
           </p>
         </div>
       </footer>

@@ -408,7 +408,7 @@ export default function BlogIndex() {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   // Define main categories
-  const mainCategories = ['Trump', '$$$', 'Mental Health', 'The Universe', 'Artificial Intelligence'];
+  const mainCategories = useMemo(() => ['Trump', '$$$', 'Mental Health', 'The Universe', 'Artificial Intelligence'], []);
 
   // Get all unique tags for categories
   const allCategories = useMemo(() => {
@@ -418,7 +418,7 @@ export default function BlogIndex() {
       postTags.forEach((tag: string) => tags.add(tag));
     });
     return ['All', ...Array.from(tags).sort()];
-  }, [fallbackPosts]);
+  }, []);
 
   // Group posts by main categories
   const categorizedPosts = useMemo(() => {
@@ -450,7 +450,7 @@ export default function BlogIndex() {
     });
 
     return groups;
-  }, [mainCategories, fallbackPosts]);
+  }, [mainCategories]);
 
   // Filter posts based on search and category
   const filteredPosts = useMemo(() => {
@@ -517,7 +517,7 @@ export default function BlogIndex() {
             className="text-4xl md:text-5xl font-bold gradient-text mb-4 text-center"
             style={{ fontFamily: 'var(--font-cinzel)' }}
           >
-            THE ARENA BLOG
+            NO SACRED COWS
           </h1>
           <p className="text-lg text-center mb-8 max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
             Discussions on mental health, psychology, technology, philosophy, and everything in between.
@@ -708,11 +708,20 @@ export default function BlogIndex() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Bottom Navigation */}
       <footer className="border-t border-[var(--primary)]/20 py-8 px-6 z-10 relative">
         <div className="max-w-4xl mx-auto text-center">
+          <div className="flex justify-center items-center gap-6 mb-4">
+            <Link
+              href="/"
+              className="text-xl font-bold gradient-text"
+              style={{ fontFamily: 'var(--font-cinzel)' }}
+            >
+              NO SACRED COWS
+            </Link>
+          </div>
           <p style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-orbitron)' }}>
-            © 2026 THE COLISEUM • ALL RIGHTS RESERVED
+            © 2026 No Sacred Cows • All Rights Reserved
           </p>
         </div>
       </footer>

@@ -23,8 +23,8 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "The Coliseum",
-  description: "The Arena - Personal Gaming Style Blog",
+  title: "No Sacred Cows",
+  description: "Unfiltered discussions on controversial topics",
 };
 
 export default function RootLayout({
@@ -39,7 +39,6 @@ export default function RootLayout({
         style={{ fontFamily: 'var(--font-rajdhani), sans-serif' }}
       >
         <ThemeProvider>
-          <Header />
           {children}
         </ThemeProvider>
       </body>
