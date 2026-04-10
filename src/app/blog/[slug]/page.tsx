@@ -58,28 +58,9 @@ const fallbackPosts = [
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
 
-  let post;
-  try {
-    post = await db
-      .select()
-      .from(posts)
-      .where(eq(posts.slug, slug))
-      .limit(1);
-  } catch (error) {
-    console.error('Database error:', error);
-    // Check fallback
-    post = fallbackPosts.filter(p => p.slug === slug);
-    if (post.length === 0) {
-      notFound();
-    }
-  }
-
-  if (!post || post.length === 0) {
-    // Check fallback
-    post = fallbackPosts.filter(p => p.slug === slug);
-    if (post.length === 0) {
-      notFound();
-    }
+  const post = fallbackPosts.filter(p => p.slug === slug);
+  if (post.length === 0) {
+    notFound();
   }
 
   const blogPost = post[0];
