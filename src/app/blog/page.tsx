@@ -70,7 +70,7 @@ export default async function BlogIndex() {
       <MilestoneBadges />
 
       {/* Blog Index */}
-      <section className="py-16 px-6 relative z-10">
+      <section className="py-16 px-6 relative z-10 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-right mb-4">
             <a

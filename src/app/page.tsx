@@ -12,13 +12,20 @@ export default function Home() {
     <main className="min-h-screen relative overflow-x-hidden">
       {/* Navigation */}
       <nav className="absolute top-0 left-0 right-0 z-20 p-6">
-        <div className="max-w-4xl mx-auto flex justify-center">
+        <div className="max-w-4xl mx-auto flex justify-between items-center">
           <Link
             href="/"
             className="text-xl font-bold gradient-text"
             style={{ fontFamily: 'var(--font-cinzel)' }}
           >
             THE COLISEUM
+          </Link>
+          <Link
+            href="/blog"
+            className="text-sm hover:text-[var(--accent)] transition-colors"
+            style={{ fontFamily: 'var(--font-orbitron)' }}
+          >
+            BLOG
           </Link>
         </div>
       </nav>
