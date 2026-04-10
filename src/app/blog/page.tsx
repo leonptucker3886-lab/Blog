@@ -398,6 +398,11 @@ const fallbackPosts: BlogPost[] = [
   }
 ];
 
+// Function to strip HTML tags
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '');
+}
+
 export default function BlogIndex() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -418,7 +423,7 @@ export default function BlogIndex() {
       const matchesSearch = searchTerm === '' ||
         post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         post.subtitle?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        stripHtml(post.content).toLowerCase().includes(searchTerm.toLowerCase()) ||
         (post.tags && JSON.parse(post.tags).some((tag: string) => tag.toLowerCase().includes(searchTerm.toLowerCase())));
 
       const matchesCategory = selectedCategory === 'All' ||
@@ -469,7 +474,7 @@ export default function BlogIndex() {
           <div className="space-y-6">
             {filteredPosts.map((post: BlogPost) => {
               const tags = post.tags ? JSON.parse(post.tags) : [];
-              const description = post.content.substring(0, 200) + '...';
+              const description = stripHtml(post.content).substring(0, 200) + '...';
 
               return (
                 <Link
