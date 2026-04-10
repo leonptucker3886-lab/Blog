@@ -17,11 +17,22 @@ const fallbackPosts = [
     slug: 'darvo',
     title: 'Understanding DARVO',
     subtitle: 'Narcissism, Manipulation Tactics, and How to Protect Yourself',
-    content: `<p class="text-lg mb-8">
-      DARVO stands for <strong>Deny, Attack, Reverse Victim and Offender</strong>. It was coined in the 1990s by psychologist Dr. Jennifer Freyd in her research on betrayal trauma and perpetrator responses—particularly in cases of sexual abuse, though it applies broadly to narcissistic and abusive dynamics today.
+    content: `<p style="font-size: 1.125rem; line-height: 1.75rem; margin-bottom: 2rem; color: var(--text-primary); font-family: var(--font-rajdhani);">
+      DARVO stands for <strong style="color: var(--accent);">Deny, Attack, Reverse Victim and Offender</strong>. It was coined in the 1990s by psychologist Dr. Jennifer Freyd in her research on betrayal trauma and perpetrator responses—particularly in cases of sexual abuse, though it applies broadly to narcissistic and abusive dynamics today.
     </p>
-    <p class="mb-6">
-      This blog post breaks down DARVO clearly, explores related narcissistic tactics, and offers practical steps for recognition and recovery.
+
+    <div style="margin: 2rem 0; padding: 1.5rem; border-radius: 0.5rem; border: 1px solid rgba(255, 215, 0, 0.3); background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));">
+      <p style="text-align: center; margin-bottom: 1rem; color: var(--text-primary); font-family: var(--font-orbitron); font-weight: 500;">
+        Explore realistic examples of these tactics in action with the{' '}
+        <a href="https://clarify-drop-ai.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #ffd700; text-decoration: underline; font-weight: bold; transition: color 0.3s;">
+          Clarity Drop AI personality test and toolkit
+        </a>
+        {' '}— a free educational resource designed to help you recognize and analyze narcissistic responses.
+      </p>
+    </div>
+
+    <p style="margin-bottom: 1.5rem; color: var(--text-primary); font-family: var(--font-rajdhani); line-height: 1.6;">
+      This blog post breaks down DARVO clearly, explores related narcissistic tactics, and offers practical steps for recognition and recovery. Whether you're navigating a difficult relationship, recovering from emotional abuse, or simply educating yourself, understanding these dynamics is empowering.
     </p>`,
     tags: JSON.stringify(['narcissism', 'DARVO', 'abuse', 'manipulation', 'mental health']),
     readTime: '15 min read',
@@ -32,10 +43,10 @@ const fallbackPosts = [
     slug: 'epic-story-life-big-bang-today',
     title: 'The Epic Story of Life: From the Big Bang to Today – A Straightforward Timeline',
     subtitle: null,
-    content: `<p class="text-lg mb-8">
+    content: `<p style="font-size: 1.125rem; line-height: 1.75rem; margin-bottom: 2rem; color: var(--text-primary); font-family: var(--font-rajdhani);">
       The history of the universe and life on Earth spans 13.8 billion years. Most of it happened long before humans existed. Here is a matter-of-fact look at the most important events that shaped everything we know, from the birth of the cosmos to the world we live in now.
     </p>
-    <p class="mb-6">
+    <p style="margin-bottom: 1.5rem; color: var(--text-primary); font-family: var(--font-rajdhani); line-height: 1.6;">
       We occupy an almost impossibly thin slice of this 13.8-billion-year story. Every atom in your body was forged in ancient stars. Every breath you take carries oxygen first produced by microbes billions of years ago. Life did not appear suddenly—it was the result of countless cosmic and planetary processes that built upon each other, step by step.
     </p>`,
     tags: JSON.stringify(['history', 'timeline', 'universe', 'life', 'evolution']),
