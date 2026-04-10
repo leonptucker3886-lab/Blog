@@ -2,35 +2,35 @@ export default function LeonLinkLogo() {
   return (
     <div className="flex items-center justify-center w-full gap-6">
       <div className="relative flex-shrink-0">
-        {/* Spartan Helmet Logo */}
-        <svg width="80" height="80" viewBox="0 0 60 60" className="spartan-shield">
+        {/* Coliseum Logo */}
+        <svg width="80" height="80" viewBox="0 0 60 60" className="coliseum-logo">
           <defs>
-            <linearGradient id="helmetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="coliseumGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="var(--accent)" />
               <stop offset="100%" stopColor="var(--primary)" />
             </linearGradient>
           </defs>
 
-          {/* Shield background */}
-          <path
-            d="M30 5 L55 15 L55 45 Q55 55 30 55 Q5 55 5 45 L5 15 Z"
-            fill="var(--bg-lighter)"
-            stroke="url(#helmetGrad)"
-            strokeWidth="2"
-          />
+          {/* Coliseum base */}
+          <rect x="5" y="35" width="50" height="20" rx="2" fill="var(--bg-lighter)" stroke="url(#coliseumGrad)" strokeWidth="2" />
 
-          {/* Helmet silhouette */}
-          <path
-            d="M30 12 L42 18 L42 32 Q42 42 30 46 Q18 42 18 32 L18 18 Z"
-            fill="var(--primary)"
-            className="glitch"
-          />
+          {/* Arches */}
+          <ellipse cx="15" cy="35" rx="6" ry="8" fill="var(--primary)" />
+          <ellipse cx="30" cy="35" rx="6" ry="8" fill="var(--primary)" />
+          <ellipse cx="45" cy="35" rx="6" ry="8" fill="var(--primary)" />
 
-          {/* Visor */}
-          <rect x="20" y="26" width="20" height="5" rx="2" fill="var(--accent)" />
+          {/* Pillars */}
+          <rect x="12" y="15" width="3" height="20" fill="var(--primary)" />
+          <rect x="27" y="15" width="3" height="20" fill="var(--primary)" />
+          <rect x="42" y="15" width="3" height="20" fill="var(--primary)" />
 
-          {/* Plume */}
-          <path d="M30 5 L30 12" stroke="var(--accent)" strokeWidth="3" />
+          {/* Top arches */}
+          <ellipse cx="15" cy="20" rx="4" ry="5" fill="var(--accent)" />
+          <ellipse cx="30" cy="20" rx="4" ry="5" fill="var(--accent)" />
+          <ellipse cx="45" cy="20" rx="4" ry="5" fill="var(--accent)" />
+
+          {/* Center opening */}
+          <rect x="25" y="25" width="10" height="15" fill="var(--bg-dark)" />
         </svg>
       </div>
 
