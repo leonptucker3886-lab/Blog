@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import LeonLinkLogo from './LeonLinkLogo';
-import ThemeSwitcher from './ThemeSwitcher';
 
 export default function Header() {
   return (
@@ -51,13 +50,13 @@ export default function Header() {
             </div>
           </nav>
 
-          {/* Right side - Search and Theme */}
-          <div className="flex items-center space-x-4">
+          {/* Right side - Search */}
+          <div className="flex items-center">
             <div className="relative">
               <input
                 type="text"
                 placeholder="Search articles..."
-                className="w-64 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                className="w-48 md:w-64 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
               />
               <button className="absolute right-2 top-2.5">
                 <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,7 +64,6 @@ export default function Header() {
                 </svg>
               </button>
             </div>
-            <ThemeSwitcher />
           </div>
         </div>
 

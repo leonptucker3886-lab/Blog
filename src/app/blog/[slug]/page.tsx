@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </header>
 
             <div
-              className="prose prose-lg max-w-none mb-12"
+              className="prose prose-lg max-w-none mb-12 break-words"
               style={{ color: 'var(--text-primary)' }}
               dangerouslySetInnerHTML={{ __html: blogPost.content }}
             />

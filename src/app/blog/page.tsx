@@ -395,6 +395,102 @@ const fallbackPosts: BlogPost[] = [
     tags: JSON.stringify(['$$$ Stuff', 'Altcoins', 'Cryptocurrency', 'Blockchain']),
     readTime: '3 min read',
     createdAt: new Date('2026-04-20')
+  },
+  {
+    id: 13,
+    slug: 'ai-sex-robots-controversy',
+    title: 'AI Sex Robots: Liberation or Objectification?',
+    subtitle: 'Exploring the ethical dilemmas of artificial intimacy',
+    content: `<p>The rise of AI sex robots presents a profound ethical quandary. On one hand, proponents argue they offer safe, customizable companionship for those who struggle with human relationships, potentially reducing exploitation in the sex industry. On the other, critics contend they reinforce harmful gender stereotypes and could desensitize users to real human connection.</p>
+<p>From a libertarian perspective, adults should have the freedom to choose their forms of pleasure, and AI companions might even reduce demand for human trafficking. However, feminists worry that these robots, often designed with hyper-sexualized female forms, perpetuate objectification and could normalize abusive behaviors.</p>
+<p>The technology is advancing rapidly, with some robots featuring emotional intelligence and learning capabilities. But does this make them more human-like, or just better at manipulation? The debate touches on deeper questions about consent, empathy, and what it means to be human in an increasingly automated world.</p>`,
+    tags: JSON.stringify(['AI', 'sex robots', 'ethics', 'relationships']),
+    readTime: '3 min read',
+    createdAt: new Date('2026-04-11')
+  },
+  {
+    id: 14,
+    slug: 'ai-in-warfare-drones-and-autonomy',
+    title: 'AI in Warfare: Lethal Autonomous Weapons Systems',
+    subtitle: 'The future of combat and the ethics of killer robots',
+    content: `<p>Lethal Autonomous Weapons Systems (LAWS), or "killer robots," represent the next frontier in military technology. These AI-powered drones and systems can identify and engage targets without human intervention, promising to reduce soldier casualties and make warfare more efficient.</p>
+<p>Supporters argue that AI can make better tactical decisions than humans under stress, potentially minimizing civilian casualties through precision targeting. However, opponents fear a "robot arms race" where these systems proliferate globally, making warfare too easy and lowering the threshold for conflict.</p>
+<p>The core concern is accountability: who is responsible when an AI makes a fatal error? International treaties are being debated, but the technology's rapid advancement outpaces regulation. As AI becomes more autonomous, we must grapple with whether machines should have the power of life and death over humans.</p>`,
+    tags: JSON.stringify(['AI', 'warfare', 'ethics', 'military']),
+    readTime: '3 min read',
+    createdAt: new Date('2026-04-12')
+  },
+  {
+    id: 15,
+    slug: 'income-now-vs-1990s',
+    title: 'Income Inequality: Now vs. the 1990s',
+    subtitle: 'Has economic mobility improved or worsened?',
+    content: `<p>The 1990s are often romanticized as a time of economic prosperity, but how does income distribution compare to today? In the 90s, the middle class expanded significantly, with wages rising across income brackets. However, the gap between the rich and poor was already widening due to globalization and technology.</p>
+<p>Today, while GDP has grown substantially, wage growth has stagnated for many. The top 1% has captured an increasingly large share of income, leading to debates about whether capitalism is inherently flawed or if policy changes are needed.</p>
+<p>Some argue that modern gig economy and remote work offer new opportunities, but others point to rising living costs and student debt as barriers. The question remains: are we better off than in the 90s, or has progress been illusory for most people?</p>`,
+    tags: JSON.stringify(['$$$ Stuff', 'income', 'inequality', 'economy']),
+    readTime: '3 min read',
+    createdAt: new Date('2026-04-13')
+  },
+  {
+    id: 16,
+    slug: 'interest-vs-compound-interest',
+    title: 'Interest Rates vs. Compound Interest: The Hidden Power',
+    subtitle: 'Understanding how small differences create massive wealth gaps',
+    content: `<p>Simple interest and compound interest seem similar on the surface, but their long-term effects are dramatically different. Simple interest calculates earnings only on the principal amount, while compound interest earns "interest on interest," leading to exponential growth.</p>
+<p>This difference explains why starting to save early, even small amounts, can lead to substantial wealth. It's also why debt can spiral out of control when compounded. Critics argue that compound interest favors the wealthy who can invest early, while the poor struggle with high-interest debt.</p>
+<p>From an economic perspective, compound interest drives investment and growth. But is it fair that the rich get richer while the poor pay exorbitant rates on credit cards and payday loans? The debate touches on broader questions of financial literacy and systemic inequality.</p>`,
+    tags: JSON.stringify(['$$$ Stuff', 'interest', 'compound interest', 'wealth']),
+    readTime: '3 min read',
+    createdAt: new Date('2026-04-14')
+  },
+  {
+    id: 17,
+    slug: 'probability-of-simulation',
+    title: 'Are We Living in a Simulation?',
+    subtitle: 'The philosophical and scientific case for our simulated reality',
+    content: `<p>Nick Bostrom's simulation argument suggests that if advanced civilizations can create simulations indistinguishable from reality, and they create many such simulations, then we're likely living in one rather than the "base" reality.</p>
+<p>Proponents point to the fine-tuning of physical constants, the digital nature of our universe at quantum levels, and the rapid advancement of VR technology as evidence. If true, it would revolutionize our understanding of consciousness and free will.</p>
+<p>Skeptics argue that creating such detailed simulations is computationally impossible, and the argument relies on unproven assumptions. But the question persists: if we're in a simulation, what does that mean for ethics, purpose, and our place in the cosmos?</p>`,
+    tags: JSON.stringify(['simulation', 'philosophy', 'universe']),
+    readTime: '3 min read',
+    createdAt: new Date('2026-04-15')
+  },
+  {
+    id: 18,
+    slug: 'origins-of-man-evolution-vs-creation',
+    title: 'Origins of Humanity: Evolution or Divine Creation?',
+    subtitle: 'The scientific evidence versus religious beliefs',
+    content: `<p>The debate over human origins pits evolutionary biology against creationist interpretations of religious texts. Fossils, DNA evidence, and genetic similarities with other primates strongly support the theory that humans evolved from earlier hominids over millions of years.</p>
+<p>Creationists argue that the complexity of life, particularly human consciousness, requires an intelligent designer. They point to gaps in the fossil record and irreducible complexity as evidence against gradual evolution.</p>
+<p>While science sees evolution as a natural process guided by natural selection, faith sees divine intervention. Can these perspectives be reconciled, or must we choose between empirical evidence and spiritual truth? The answer may lie in how we interpret both science and scripture.</p>`,
+    tags: JSON.stringify(['origins', 'evolution', 'creation', 'science']),
+    readTime: '4 min read',
+    createdAt: new Date('2026-04-16')
+  },
+  {
+    id: 19,
+    slug: 'guns-and-people-we-kill',
+    title: 'Guns and Violence: Protection or Threat?',
+    subtitle: 'The Second Amendment debate in modern America',
+    content: `<p>The right to bear arms is enshrined in the US Constitution, but mass shootings and rising gun violence have sparked intense debate. Gun rights advocates argue that firearms are essential for self-defense and that "guns don't kill people, people do."</p>
+<p>Gun control proponents point to statistics showing that countries with stricter gun laws have lower rates of gun deaths. They argue that military-style weapons have no place in civilian hands and that background checks and waiting periods could prevent tragedies.</p>
+<p>The issue is deeply polarized, touching on fears of government tyranny versus fears of personal vulnerability. As technology advances with smart guns and red flag laws, the debate evolves, but the core question remains: how do we balance individual rights with public safety?</p>`,
+    tags: JSON.stringify(['guns', 'violence', 'rights', 'safety']),
+    readTime: '3 min read',
+    createdAt: new Date('2026-04-17')
+  },
+  {
+    id: 20,
+    slug: 'history-of-religion-evolution',
+    title: 'The Evolution of Religion: From Animism to Modern Faiths',
+    subtitle: 'How spiritual beliefs shaped human civilization',
+    content: `<p>Religion has been a cornerstone of human society for millennia, evolving from animistic beliefs in nature spirits to complex organized faiths. Early religions served to explain natural phenomena and provide social cohesion.</p>
+<p>As civilizations developed, religions became more structured, with moral codes, rituals, and institutions. The Axial Age (800-200 BCE) saw the emergence of major world religions like Buddhism, Christianity, and Islam, emphasizing ethical living and salvation.</p>
+<p>Critics argue that religion has been used to justify wars and oppression, while supporters say it provides meaning and moral guidance. In secular societies, religion's role has diminished but persists in various forms. The future may see further evolution or decline as science answers more questions.</p>`,
+    tags: JSON.stringify(['religion', 'history', 'evolution']),
+    readTime: '3 min read',
+    createdAt: new Date('2026-04-18')
   }
 ];
 
@@ -408,7 +504,7 @@ export default function BlogIndex() {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   // Define main categories
-  const mainCategories = useMemo(() => ['Trump', '$$$', 'Mental Health', 'The Universe', 'Artificial Intelligence'], []);
+  const mainCategories = useMemo(() => ['Trump', '$$$', 'Mental Health', 'The Universe', 'Artificial Intelligence', 'History', 'Culture', 'Science', 'Religion'], []);
 
   // Get all unique tags for categories
   const allCategories = useMemo(() => {
@@ -439,10 +535,22 @@ export default function BlogIndex() {
         } else if (cat === 'Mental Health' && tags.includes('Mental Health')) {
           groups[cat].push(post);
           break;
-        } else if (cat === 'The Universe' && (tags.includes('universe') || tags.includes('life') || tags.includes('evolution'))) {
+        } else if (cat === 'The Universe' && (tags.includes('universe') || tags.includes('life') || tags.includes('evolution') || tags.includes('simulation'))) {
           groups[cat].push(post);
           break;
         } else if (cat === 'Artificial Intelligence' && tags.includes('AI')) {
+          groups[cat].push(post);
+          break;
+        } else if (cat === 'History' && (tags.includes('history') || tags.includes('civilization') || tags.includes('Americans') || tags.includes('generals') || tags.includes('Nixon') || tags.includes('crusaders') || tags.includes('popes'))) {
+          groups[cat].push(post);
+          break;
+        } else if (cat === 'Culture' && (tags.includes('culture') || tags.includes('spaceballs') || tags.includes('shark') || tags.includes('bear') || tags.includes('squatting'))) {
+          groups[cat].push(post);
+          break;
+        } else if (cat === 'Science' && (tags.includes('DNA') || tags.includes('leeches') || tags.includes('origins') || tags.includes('guns') || tags.includes('delta force') || tags.includes('bitcoin') || tags.includes('internet'))) {
+          groups[cat].push(post);
+          break;
+        } else if (cat === 'Religion' && (tags.includes('religion') || tags.includes('Illuminati'))) {
           groups[cat].push(post);
           break;
         }

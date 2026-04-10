@@ -116,7 +116,7 @@ export default function Home() {
                       {post.subtitle}
                     </p>
                   )}
-                  <p className="text-gray-700 text-sm mb-4 line-clamp-3">
+                  <p className="text-gray-700 text-sm mb-4 line-clamp-3 break-words">
                     {post.excerpt}
                   </p>
                   <div className="flex items-center justify-between text-xs text-gray-500">
@@ -165,7 +165,7 @@ export default function Home() {
                     <h3 className="text-lg font-bold text-gray-900 mb-2 hover:text-blue-600 transition-colors" style={{ fontFamily: 'var(--font-cinzel)' }}>
                       {post.title}
                     </h3>
-                    <p className="text-gray-700 text-sm mb-3 line-clamp-2">
+                    <p className="text-gray-700 text-sm mb-3 line-clamp-2 break-words">
                       {post.excerpt}
                     </p>
                     <span className="text-xs text-gray-500">{post.readTime}</span>
