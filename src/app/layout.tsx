@@ -39,6 +39,7 @@ export default function RootLayout({
         style={{ fontFamily: 'var(--font-rajdhani), sans-serif' }}
       >
         <ThemeProvider>
+          <Header />
           {children}
         </ThemeProvider>
       </body>

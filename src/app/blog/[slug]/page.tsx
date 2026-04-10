@@ -67,7 +67,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const tags = blogPost.tags ? JSON.parse(blogPost.tags) : [];
 
   return (
-    <main className="min-h-screen relative overflow-x-hidden">
+    <div className="min-h-screen bg-gray-50">
       {/* Blog Post */}
       <section className="py-16 px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -134,31 +134,52 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Bottom Navigation */}
-      <footer className="border-t border-[var(--primary)]/20 py-8 px-6 z-10 relative">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex justify-center items-center gap-6 mb-4">
-            <Link
-              href="/"
-              className="text-xl font-bold gradient-text"
-              style={{ fontFamily: 'var(--font-cinzel)' }}
-            >
-              NO SACRED COWS
-            </Link>
-            <span style={{ color: 'var(--text-secondary)' }}>•</span>
-            <Link
-              href="/blog"
-              className="text-sm hover:text-[var(--accent)] transition-colors"
-              style={{ fontFamily: 'var(--font-orbitron)' }}
-            >
-              Blog
-            </Link>
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h3 className="text-lg font-bold mb-4" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                No Sacred Cows
+              </h3>
+              <p className="text-gray-400 text-sm">
+                Unfiltered discussions on controversial topics.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium mb-4">Categories</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><Link href="/blog?category=Trump" className="hover:text-white transition-colors">Trump</Link></li>
+                <li><Link href="/blog?category=$$$+Stuff" className="hover:text-white transition-colors">$$$ Stuff</Link></li>
+                <li><Link href="/blog?category=Mental+Health" className="hover:text-white transition-colors">Mental Health</Link></li>
+                <li><Link href="/blog?category=The+Universe" className="hover:text-white transition-colors">The Universe</Link></li>
+                <li><Link href="/blog?category=Artificial+Intelligence" className="hover:text-white transition-colors">AI</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
+                <li><Link href="/write" className="hover:text-white transition-colors">Write</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-4">Connect</h4>
+              <div className="flex space-x-4">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <span className="sr-only">Twitter</span>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
-          <p style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-orbitron)' }}>
-            © 2026 No Sacred Cows • All Rights Reserved
-          </p>
+          <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2026 No Sacred Cows. All rights reserved.</p>
+          </div>
         </div>
       </footer>
-    </main>
+    </div>
   );
 }

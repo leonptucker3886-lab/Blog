@@ -4,56 +4,106 @@ import ThemeSwitcher from './ThemeSwitcher';
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40 bg-[var(--bg-dark)]/80 backdrop-blur-sm border-b border-[var(--primary)]/20 relative">
-      <div className="w-full px-6 py-4">
-        <Link href="/">
-          <LeonLinkLogo />
-        </Link>
-        <div className="flex justify-center">
-          <ThemeSwitcher />
+    <header className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-4">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link href="/" className="flex items-center">
+              <LeonLinkLogo />
+            </Link>
+          </div>
+
+          {/* Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            <Link href="/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
+              Home
+            </Link>
+            <Link href="/blog" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
+              Blog
+            </Link>
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-gray-900 font-medium flex items-center transition-colors">
+                Categories
+                <svg className="ml-1 w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-200">
+                <div className="py-1">
+                  <Link href="/blog?category=Trump" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                    Trump
+                  </Link>
+                  <Link href="/blog?category=$$$+Stuff" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                    $$$ Stuff
+                  </Link>
+                  <Link href="/blog?category=Mental+Health" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                    Mental Health
+                  </Link>
+                  <Link href="/blog?category=The+Universe" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                    The Universe
+                  </Link>
+                  <Link href="/blog?category=Artificial+Intelligence" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                    Artificial Intelligence
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          {/* Right side - Search and Theme */}
+          <div className="flex items-center space-x-4">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search articles..."
+                className="w-64 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+              />
+              <button className="absolute right-2 top-2.5">
+                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </button>
+            </div>
+            <ThemeSwitcher />
+          </div>
         </div>
-        <div className="grid grid-cols-2 gap-3 mt-3 max-w-md mx-auto">
-          <a
-            href="https://leonlink.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="spartan-shield group inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-[var(--primary)]/50 hover:border-[var(--accent)] bg-[var(--bg-lighter)]/30 hover:bg-[var(--bg-lighter)]/60 transition-all duration-300"
-            style={{ fontFamily: 'var(--font-orbitron)' }}
-          >
-            <svg className="w-5 h-5 group-hover:rotate-45 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--accent)' }}>
-              <path d="M6.5 3 L12 12 L17.5 3 L12 21" />
-              <path d="M12 12 L3 6 L21 6" />
-            </svg>
-            <span className="text-sm hover:text-[var(--accent)] transition-colors">Leon Link</span>
-            <svg className="w-5 h-5 group-hover:-rotate-45 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--accent)' }}>
-              <path d="M17.5 3 L12 12 L6.5 3 L12 21" />
-              <path d="M12 12 L21 6 L3 6" />
-            </svg>
-          </a>
 
-          <a
-            href="https://hhhhu.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="spartan-shield group inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-[var(--primary)]/50 hover:border-[var(--accent)] bg-[var(--bg-lighter)]/30 hover:bg-[var(--bg-lighter)]/60 transition-all duration-300"
-            style={{ fontFamily: 'var(--font-orbitron)' }}
-          >
-            <span className="text-2xl" style={{ color: '#ffd700' }}>♠</span>
-            <span className="text-sm hover:text-[var(--accent)] transition-colors">SunNFun Slots</span>
-          </a>
-
-          <a
-            href="https://clarify-drop-ai.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="spartan-shield group inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-[var(--primary)]/50 hover:border-[var(--accent)] bg-[var(--bg-lighter)]/30 hover:bg-[var(--bg-lighter)]/60 transition-all duration-300"
-            style={{ fontFamily: 'var(--font-orbitron)' }}
-          >
-            <span className="text-2xl" style={{ color: '#ffd700' }}>👁️</span>
-            <span className="text-sm hover:text-[var(--accent)] transition-colors">Clarity Drop AI</span>
-          </a>
-
-
+        {/* Mobile menu */}
+        <div className="md:hidden border-t border-gray-200">
+          <nav className="flex flex-col space-y-2 py-4">
+            <Link href="/" className="text-gray-700 hover:text-gray-900 font-medium py-2 transition-colors">
+              Home
+            </Link>
+            <Link href="/blog" className="text-gray-700 hover:text-gray-900 font-medium py-2 transition-colors">
+              Blog
+            </Link>
+            <details className="group">
+              <summary className="text-gray-700 hover:text-gray-900 font-medium py-2 cursor-pointer flex items-center transition-colors">
+                Categories
+                <svg className="ml-1 w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="pl-4 space-y-1 border-l border-gray-200 ml-4">
+                <Link href="/blog?category=Trump" className="block text-sm text-gray-600 hover:text-gray-900 py-1 transition-colors">
+                  Trump
+                </Link>
+                <Link href="/blog?category=$$$+Stuff" className="block text-sm text-gray-600 hover:text-gray-900 py-1 transition-colors">
+                  $$$ Stuff
+                </Link>
+                <Link href="/blog?category=Mental+Health" className="block text-sm text-gray-600 hover:text-gray-900 py-1 transition-colors">
+                  Mental Health
+                </Link>
+                <Link href="/blog?category=The+Universe" className="block text-sm text-gray-600 hover:text-gray-900 py-1 transition-colors">
+                  The Universe
+                </Link>
+                <Link href="/blog?category=Artificial+Intelligence" className="block text-sm text-gray-600 hover:text-gray-900 py-1 transition-colors">
+                  Artificial Intelligence
+                </Link>
+              </div>
+            </details>
+          </nav>
         </div>
       </div>
     </header>
